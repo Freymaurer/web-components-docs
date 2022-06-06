@@ -21,15 +21,15 @@
                     }
 
                     a {
-                    color: var(--link-color, #4FB3D9) !important;
+                        color: var(--link-color, #4FB3D9) !important;
                     }
 
                     a:hover {
-                    color: var(--link-hover-color, #3A3A3A) !important;
+                        color: var(--link-hover-color, #3A3A3A) !important;
                     }
                     
                     thead {
-                    font-size: 1.2rem;
+                        font-size: 1.2rem;
                     }
 
                     nfdi-toc, nfdi-body {
@@ -63,6 +63,10 @@
 <h2 slot="inner" href="/docs/WebComponents.html#nfdinavbar">nfdi-navbar</h2>
 <h2 slot="inner" href="/docs/WebComponents.html#nfdifooter">nfdi-footer</h2>
 <h2 slot="inner" href="/docs/WebComponents.html#nfdibody">nfdi-body</h2>
+<h2 slot="inner" href="/docs/WebComponents.html#nfdisidebarelement">nfdi-sidebar-element</h2>
+<h2 slot="inner" href="/docs/WebComponents.html#nfdiheader">nfdi-header</h2>
+<h2 slot="inner" href="/docs/WebComponents.html#nfditoc">nfdi-toc</h2>
+<h2 slot="inner" href="/docs/WebComponents.html#nfdicode">nfdi-code</h2>
 
       </nfdi-sidebar-element>
       <h1 class="front-header">
@@ -71,7 +75,16 @@
       <i class="help">
         last updated at 2022-06-06
       </i>
-      <nfdi-h2 id="based-on-bulma">Based on Bulma</nfdi-h2>
+      <ul>
+<li><a href="#nfdinavbar">&lt;nfdi-navbar&gt;</a></li>
+<li><a href="#nfdifooter">&lt;nfdi-footer&gt;</a></li>
+<li><a href="#nfdibody">&lt;nfdi-body&gt;</a></li>
+<li><a href="#nfdisidebarelement">&lt;nfdi-sidebar-element&gt;</a></li>
+<li><a href="#nfdiheader">&lt;nfdi-header&gt;</a></li>
+<li><a href="#nfditoc">&lt;nfdi-toc&gt;</a></li>
+<li><a href="#nfdicode">&lt;nfdi-code&gt;</a></li>
+</ul>
+<nfdi-h2 id="based-on-bulma">Based on Bulma</nfdi-h2>
 <p>The DataPLANT web components were built with the basic Bulma style sheet in mind. It is highly recommended to reference the Bulma style sheet for all projects which use the DataPLANT web components.</p>
 <div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">&lt;</span><span style="color:#A31515;">link</span> <span style="color:Red;">rel</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;stylesheet&quot;</span> <span style="color:Red;">href</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css&quot;</span><span style="color:Blue;">&gt;</span>
@@ -117,7 +130,6 @@
 </ul>
 <nfdi-h2 id="nfdi-body">nfdi-body</nfdi-h2>
 <div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Green;">&lt;!-- tag --&gt;</span>
 &lt;nfdi-body [class=&quot;content&quot;] [hassidebar=&quot;true&quot;]&gt;<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
 </pre></div>
 </div>
@@ -125,8 +137,16 @@
 <p><img src="../images/WebComponents/nfdi-body.png?v0.5.2" alt="nfdi-navbar" />
 <em>v0.5.2</em></p>
 <p>This element will contain all documentation content in its &quot;Main Content Area&quot;. To style it's children in this area, use the bulma class <code>class=&quot;content&quot;</code>.</p>
+<p><strong>Features</strong></p>
+<ul>
+<li>Hide sidebar at 1024px media query and show fixed bottom footer to open sidebar area on touch/click.
+<ul>
+<li>Sidebar will slide into view.</li>
+</ul>
+</li>
+</ul>
 <nfdi-h3 id="slots">Slots</nfdi-h3>
-<p><strong>No specified slot</strong>: Elements will go to &quot;Main Content Area&quot;</p>
+<p>Child elements will go to &quot;Main Content Area&quot;</p>
 <div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-body</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;content&quot;</span> <span style="color:Red;">hassidebar</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;true&quot;</span><span style="color:Blue;">&gt;</span>
     <span style="color:Green;">&lt;!-- no specified slot --&gt;</span>
@@ -135,7 +155,8 @@
 <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
 </pre></div>
 </div>
-<p><strong>sidebar</strong>: Use this slot to specify an [<code>nfdi-sidebar-element</code>][#nfdi-sidebar-element).</p>
+<nfdi-h4 id="sidebar-slot"><strong>sidebar-slot</strong></nfdi-h4>
+<p>Use this slot to specify an [<code>nfdi-sidebar-element</code>][#nfdi-sidebar-element).</p>
 <div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-body</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;content&quot;</span> <span style="color:Red;">hassidebar</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;true&quot;</span><span style="color:Blue;">&gt;</span>
     <span style="color:Green;">&lt;!-- sidebar slot --&gt;</span>
@@ -154,6 +175,133 @@
 <ul>
 <li><code>--outside-background-color</code>, set &quot;background-color&quot; of are outside of box.(Default: <a href="https://github.com/nfdi4plants/Branding#lightblue">nfdi-olvi 80% lighter</a>)</li>
 <li><code>--element-text-color</code>, set &quot;color&quot;, &quot;border-color&quot;. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
+</ul>
+<nfdi-h2 id="nfdi-sidebar-element">nfdi-sidebar-element</nfdi-h2>
+<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
+&lt;nfdi-sidebar-element slot=&quot;sidebar&quot; [isActive=true]&gt;<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-sidebar-element</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+</div>
+<br>
+<p>Stackable element in &quot;Sidebar Area&gt; of body. MUST be slotted in &quot;sidebar&quot; slot of <code>nfdi-body</code>.</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>Can be opened or closed on click.</li>
+<li>Automatically highlights active pages (host + path).
+<ul>
+<li>Automatically hightlights in-page links when scrolled by.</li>
+</ul>
+</li>
+</ul>
+<nfdi-h3 id="slots-1">Slots</nfdi-h3>
+<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-sidebar-element</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;sidebar&quot;</span> <span style="color:Red;">isactive</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;true&quot;</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">div</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;title&quot;</span><span style="color:Blue;">&gt;</span>General<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">div</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">h1</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;inner&quot;</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;</span><span style="color:#A31515;">a</span> <span style="color:Red;">href</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;/index.html&quot;</span><span style="color:Blue;">&gt;</span>Home<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">a</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">h1</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-sidebar-element</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+</div>
+<nfdi-h4 id="title-slot"><strong>title-slot</strong></nfdi-h4>
+<p>Use this slot to specify the header of one sidebar element block.</p>
+<nfdi-h4 id="inner-slot"><strong>inner-slot</strong></nfdi-h4>
+<p>Use this slot with any of [<code>h1</code>, <code>h2</code>, <code>h3</code>]. to create sidebar links.</p>
+<ul>
+<li>MAY contain <code>href</code> attribute.</li>
+<li>Will be checked for matching path to window location and in-page links.</li>
+</ul>
+<nfdi-h3 id="html-attributes-1">Html Attributes</nfdi-h3>
+<ul>
+<li><code>isActive</code>/<code>isactive</code>: set to &quot;true&quot; to display the element open. (Default: &quot;false&quot;)</li>
+</ul>
+<nfdi-h3 id="custom-properties-3">Custom Properties</nfdi-h3>
+<ul>
+<li><code>--accent-text-color</code>, set color of &quot;title&quot; slot. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
+<li><code>--sidebar-text-color</code>, set color of &quot;inner&quot; slots [<code>h1</code>, <code>h2</code>, <code>h3</code>]. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a> or white based on <code>--sidebar-background-color</code>)</li>
+<li><code>--sidebar-background-color</code> set &quot;background-color&quot; of &quot;Sidebar Area&quot;. (Default: transparent)</li>
+</ul>
+<nfdi-h2 id="nfdi-header">nfdi-header</nfdi-h2>
+<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>Metadata<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>Metadata 2<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h3</span><span style="color:Blue;">&gt;</span>Metadata 3<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h3</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h4</span><span style="color:Blue;">&gt;</span>Metadata 4<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h4</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h5</span><span style="color:Blue;">&gt;</span>Metadata 5<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h5</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h6</span><span style="color:Blue;">&gt;</span>Metadata 6<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h6</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+</div>
+<br>
+<p><img src="../images/WebComponents/nfdi-header.png?v0.5.2" alt="nfdi-header" /></p>
+<p><em>v0.5.2</em></p>
+<p>Use with one child element as text. Will propagate html.</p>
+<p><strong>Features</strong></p>
+<ul>
+<li>Automaticly creates in-page (/#in-page-link) link before header.</li>
+<li>Automaticly creates id corresponding to in-page link for header.</li>
+</ul>
+<nfdi-h3 id="custom-properties-4">Custom Properties</nfdi-h3>
+<ul>
+<li><code>--link-color</code>: set color of generated in-page link. (Default: <a href="https://github.com/nfdi4plants/Branding#lightblue">nfdi-lightblue</a>)</li>
+<li><code>--link-hover-color</code>: set hover color of generated in-page link. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
+<li><code>--header-color</code>: set color to header elements. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
+</ul>
+<nfdi-h2 id="nfdi-toc">nfdi-toc</nfdi-h2>
+<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-toc</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-toc</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+</div>
+<br>
+<p><img src="../images/WebComponents/nfdi-toc.png?v0.5.2" alt="nfdi-toc" />
+<em>v0.5.2</em></p>
+<p>Slotless component to automatically create table of contents.</p>
+<p><strong>Features</strong></p>
+<ul>
+<li>Finds all <a href="/#nfdiheader"><code>nfdi-header</code></a> in <code>nfdi-body</code>, nests them according to lowest depth and creates <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code> elements with the in-page links.</li>
+</ul>
+<nfdi-h3 id="custom-properties-5">Custom Properties</nfdi-h3>
+<ul>
+<li><code>--link-color</code>: set color of generated in-page links. (Default: <a href="https://github.com/nfdi4plants/Branding#lightblue">nfdi-lightblue</a>)</li>
+<li><code>--link-hover-color</code>: set hover color of generated in-page links. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
+<li><code>--element-text-color</code>: set color to list style elements. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
+</ul>
+<nfdi-h2 id="nfdi-code">nfdi-code</nfdi-h2>
+<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-code</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-code</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+</div>
+<br>
+<p><img src="../images/WebComponents/nfdi-code.png?v0.5.2" alt="nfdi-code" />
+<em>v0.5.2</em></p>
+<p>This component can be used to display code snippets similar to <code>&lt;pre&gt;</code> html elements. Any text inside will be presented exactly as written.</p>
+<p><strong>Features</strong></p>
+<ul>
+<li>Comes with copy-to-clipboard button.</li>
+</ul>
+<nfdi-h3 id="slots-2">Slots</nfdi-h3>
+<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-code</span><span style="color:Blue;">&gt;</span>#r &quot;nuget: DynamicObj, 1.0.1&quot;
+#r &quot;nuget: Expecto, 9.0.4&quot;
+
+open DynamicObj
+open Newtonsoft.Json
+open System.IO
+open Microsoft.FSharp.Core
+
+type JsonParser = {
+    TokenType: JsonToken
+    Value: string option
+} with
+    static member create tokenType value = {
+        TokenType = tokenType
+        Value = value
+    }<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-code</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+</div>
+<nfdi-h3 id="custom-properties-6">Custom Properties</nfdi-h3>
+<ul>
+<li><code>--accent-text-color</code>: set the colored border on the left. (Default: <a href="https://github.com/nfdi4plants/Branding#lightblue">nfdi-lightblue</a>)</li>
+<li><code>--outside-background-color</code>: set background-color. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-white</a>)</li>
+<li><code>--element-text-color</code>: set copy-button border-color and box-shadow color. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-white</a>)</li>
 </ul>
 
       <h3>
