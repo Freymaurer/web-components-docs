@@ -7,6 +7,8 @@ To-Dos:
 
 ```General
 # Home:/web-components-docs/index.html
+# Installation:/web-components-docs/docs/Installation.html
+# List of Projects:/web-components-docs/docs/ProjectList.html
 ```
 
 ```Web Components
@@ -18,4 +20,8 @@ To-Dos:
 ## nfdi-header:/web-components-docs/docs/WebComponents.html#nfdiheader
 ## nfdi-toc:/web-components-docs/docs/WebComponents.html#nfditoc
 ## nfdi-code:/web-components-docs/docs/WebComponents.html#nfdicode
+```
+
+```Development
+# Development:/web-components-docs/docs/Development.html
 ```

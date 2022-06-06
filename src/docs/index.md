@@ -7,6 +7,8 @@ add toc: true
 add sidebar: sidebars\mainSidebar.md
 ---
 
-This is a landing page. Feel free to click around in the sidebar.
+The `@nfdi4plants/web-components` were created, based on the [lit web components](https://lit.dev) base typescript template.
 
-**This documentation is currently WIP.**
+You can find the latest version on [npm](https://www.npmjs.com/package/@nfdi4plants/web-components).
+
+⭐ This documentation is generated using [Fornax](https://github.com/ionide/Fornax) and the @nfdi4plants/web-components.
