@@ -25,7 +25,7 @@ The DataPLANT web components were built with the basic Bulma style sheet in mind
 
 <br>
 
-![nfdi-navbar](../images/WebComponents/nfdi-navbar.jpg?v0.5.2)
+![nfdi-navbar](../images/WebComponents/nfdi-navbar.png?v0.5.2)
 *v0.5.2*
 
 Slotless component with responsive design at 1024px media query. Fixed top and requires `padding-top: 3.25rem` to be added to html.
