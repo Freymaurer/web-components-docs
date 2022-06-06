@@ -1,6 +1,6 @@
 # nfdi4plants-fornax-template
 
-**[Link to gh-pages](https://freymaurer.github.io/web-components-docs/index.html)**
+**[Link to gh-pages](https://freymaurer.github.io/web-components-docs/)**
 
 # Development
 
