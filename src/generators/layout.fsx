@@ -48,7 +48,11 @@ let layout (ctx : SiteContents) active bodyCnt =
             link [Rel "stylesheet"; Href "https://fonts.googleapis.com/css?family=Open+Sans"]
             link [Rel "stylesheet"; Type "text/css"; Href "/style/style.css"]
             link [Rel "stylesheet"; Type "text/css"; Href "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"]
+            #if WATCH
             script [ Type "module"; Src "/js/bundle.js"] []
+            #else 
+            script [ Type "module"; Src "/web-components-docs/js/bundle.js"] []
+            #endif
             style [] [
                 !! """
                     body {
