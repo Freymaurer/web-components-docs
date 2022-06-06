@@ -1,10 +1,13 @@
 #r "../_lib/Fornax.Core.dll"
 #r "../_lib/Markdig.dll"
+#r "../_lib/Markdig.SyntaxHighlighting.dll"
+#r "../_lib/ColorCode.dll"
 #load "nfdi-header-extension.fsx"
 #load "sidebar-header-extension.fsx"
 
 open System.IO
 open Markdig
+open Markdig.SyntaxHighlighting
 
 type DocsConfig = {
     disableLiveRefresh: bool
@@ -35,6 +38,7 @@ let markdownPipeline =
     MarkdownPipelineBuilder()
         .UseAdvancedExtensions()
         .UseEmojiAndSmiley()
+        .UseSyntaxHighlighting()
         .UseNFDIHeader()
         .Build()
 
