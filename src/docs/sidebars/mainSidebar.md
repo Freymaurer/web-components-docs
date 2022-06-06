@@ -6,7 +6,7 @@ To-Dos:
 ---
 
 ```General
-# Home:/index.html
+# Home:/web-components-docs/index.html
 ```
 
 ```Web Components
