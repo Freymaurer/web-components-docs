@@ -10,12 +10,12 @@ To-Dos:
 ```
 
 ```Web Components
-# Web Components:/docs/WebComponents.html
-## nfdi-navbar:/docs/WebComponents.html#nfdinavbar
-## nfdi-footer:/docs/WebComponents.html#nfdifooter
-## nfdi-body:/docs/WebComponents.html#nfdibody
-## nfdi-sidebar-element:/docs/WebComponents.html#nfdisidebarelement
-## nfdi-header:/docs/WebComponents.html#nfdiheader
-## nfdi-toc:/docs/WebComponents.html#nfditoc
-## nfdi-code:/docs/WebComponents.html#nfdicode
+# Web Components:/web-components-docs/docs/WebComponents.html
+## nfdi-navbar:/web-components-docs/docs/WebComponents.html#nfdinavbar
+## nfdi-footer:/web-components-docs/docs/WebComponents.html#nfdifooter
+## nfdi-body:/web-components-docs/docs/WebComponents.html#nfdibody
+## nfdi-sidebar-element:/web-components-docs/docs/WebComponents.html#nfdisidebarelement
+## nfdi-header:/web-components-docs/docs/WebComponents.html#nfdiheader
+## nfdi-toc:/web-components-docs/docs/WebComponents.html#nfditoc
+## nfdi-code:/web-components-docs/docs/WebComponents.html#nfdicode
 ```
