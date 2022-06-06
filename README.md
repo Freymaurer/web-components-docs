@@ -1,8 +1,8 @@
 # nfdi4plants-fornax-template
 
-**This repo is currently WIP.**
+**[Link to gh-pages](https://freymaurer.github.io/web-components-docs/index.html)**
 
-This fornax template implements the existing [nfdi-web-components](https://github.com/nfdi4plants/web-components) for **documentation**.
+# Development
 
 ## install 
 
