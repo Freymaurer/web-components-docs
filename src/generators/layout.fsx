@@ -56,7 +56,7 @@ let layout (ctx : SiteContents) active bodyCnt =
             style [] [
                 !! """
                     body {
-                    margin: 0px;
+                        margin: 0px;
                     }
 
                     thead tr th, strong {
@@ -136,7 +136,7 @@ let docsLayout (docs: Docsloader.Docs) =
         // Edit this page link
         div [] [
             a [
-                Href $"https://github.com/nfdi4plants/nfdi4plants.github.io/tree/main/src/{docs.file}"; 
+                Href $"https://github.com/nfdi4plants/web-components-docs/blob/main/src/{docs.file}"; 
                 HtmlProperties.Style [MarginLeft "auto"; Display "block"; CSSProperties.Width "130px"]
             ] [!! "✏️ Edit this page"]
         ]
