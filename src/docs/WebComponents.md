@@ -15,7 +15,9 @@ add sidebar: sidebars\mainSidebar.md
 - [&#60;nfdi-toc&#62;](#nfditoc)
 - [&#60;nfdi-code&#62;](#nfdicode)
 
-## Based on Bulma
+## Style
+
+### Based on Bulma
 
 The DataPLANT web components were built with the basic Bulma style sheet in mind. It is highly recommended to reference the Bulma style sheet for all projects which use the DataPLANT web components.
 
@@ -24,6 +26,43 @@ The DataPLANT web components were built with the basic Bulma style sheet in mind
 ```
 
 *Or see [here](https://bulma.io/documentation/overview/start/) for the official docs.*
+
+### Custom Properties -  CSS variables
+
+Nearly all web components come with the possibility to change the default color scheme by applying custom CSS variables to the html document. Each web component comes with a description of available variables and their default values.
+If you are using the `nfdi-body` for documentation it is highly recommended to use the following css snippet to apply a consistent styling to the child elements inside the body.
+
+```css
+nfdi-toc, nfdi-body {
+    --outside-background-color: rgb(240, 243, 246);
+    --header-color: rgb(10, 12, 16)
+    --element-text-color: #0E1116;
+    --element-background-color: #fff;
+    --accent-text-color: rgb(31, 194, 167);
+    --link-color: #4FB3D9;
+    --link-hover-color: #8ad3ee;
+}
+
+body {
+    margin: 0px;
+}
+
+thead tr th, strong {
+    color: var(--accent-text-color) !important
+}
+
+a {
+    color: var(--link-color, #4FB3D9) !important;
+}
+
+a:hover {
+    color: var(--link-hover-color, #3A3A3A) !important;
+}
+
+thead {
+    font-size: 1.2rem;
+}
+```
 
 ## nfdi-navbar
 

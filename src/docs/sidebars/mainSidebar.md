@@ -13,6 +13,7 @@ To-Dos:
 
 ```Web Components
 # Web Components:/web-components-docs/docs/WebComponents.html
+## Style:/web-components-docs/docs/WebComponents.html#style
 ## nfdi-navbar:/web-components-docs/docs/WebComponents.html#nfdinavbar
 ## nfdi-footer:/web-components-docs/docs/WebComponents.html#nfdifooter
 ## nfdi-body:/web-components-docs/docs/WebComponents.html#nfdibody
