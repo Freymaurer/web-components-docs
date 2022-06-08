@@ -11539,7 +11539,7 @@ function toInDOMHref(href) {
     return "#";
   }
 }
-const removeSpecialCharRegex = /[^a-zA-Z0-9\s]/g;
+const removeSpecialCharRegex = /[^a-zA-Z0-9\s\-]/g;
 function createInPageLinkText(innerHtml) {
   const lightDOMText = innerHtml.trim();
   return lightDOMText.toLowerCase().replace(removeSpecialCharRegex, "").replace(/\s/g, "-");
@@ -11954,7 +11954,7 @@ Code.styles = [
   bulmaStyles,
   r$2`
             pre {
-                background-color: var(--outside-background-color,#F8F8FF);
+                background-color: var(--outside-background-color,${nfdiWhite});
                 border: 1px solid #ddd;
                 border-left: 3px solid var(--accent-text-color,${nfdiLightblue});
                 color: ${nfdiBlack};
@@ -11975,12 +11975,12 @@ Code.styles = [
                 position: absolute;
                 right: 0;
                 top: 0;
-                border-left: 1px solid var(--element-text-color,#F8F8FF) !important;
-                border-bottom: 1px solid var(--element-text-color,#F8F8FF) !important;
+                border-left: 1px solid var(--element-text-color,${nfdiWhite}) !important;
+                border-bottom: 1px solid var(--element-text-color,${nfdiWhite}) !important;
             }
 
             .copybutton:active {
-                box-shadow: -1 1 0 1px var(--element-text-color,#F8F8FF) !important;
+                box-shadow: -1 1 0 1px var(--element-text-color,${nfdiWhite}) !important;
             }
         `
 ];
