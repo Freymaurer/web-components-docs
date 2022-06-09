@@ -83,16 +83,16 @@
         Web Components
       </h1>
       <i class="help">
-        last updated at 2022-06-06
+        last updated at 2022-06-09
       </i>
       <ul>
-<li><a href="#nfdinavbar">&lt;nfdi-navbar&gt;</a></li>
-<li><a href="#nfdifooter">&lt;nfdi-footer&gt;</a></li>
-<li><a href="#nfdibody">&lt;nfdi-body&gt;</a></li>
-<li><a href="#nfdisidebarelement">&lt;nfdi-sidebar-element&gt;</a></li>
-<li><a href="#nfdiheader">&lt;nfdi-header&gt;</a></li>
-<li><a href="#nfditoc">&lt;nfdi-toc&gt;</a></li>
-<li><a href="#nfdicode">&lt;nfdi-code&gt;</a></li>
+<li><a href="#nfdi-navbar">&lt;nfdi-navbar&gt;</a></li>
+<li><a href="#nfdi-footer">&lt;nfdi-footer&gt;</a></li>
+<li><a href="#nfdi-body">&lt;nfdi-body&gt;</a></li>
+<li><a href="#nfdi-sidebarelement">&lt;nfdi-sidebar-element&gt;</a></li>
+<li><a href="#nfdi-header">&lt;nfdi-header&gt;</a></li>
+<li><a href="#nfdi-toc">&lt;nfdi-toc&gt;</a></li>
+<li><a href="#nfdi-code">&lt;nfdi-code&gt;</a></li>
 </ul>
 <nfdi-h2 id="style">Style</nfdi-h2>
 <nfdi-h3 id="based-on-bulma">Based on Bulma</nfdi-h3>
@@ -302,6 +302,30 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 <ul>
 <li>Finds all <a href="/#nfdiheader"><code>nfdi-header</code></a> in <code>nfdi-body</code>, nests them according to lowest depth and creates <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code> elements with the in-page links.</li>
 </ul>
+<p><strong>Known Issues</strong></p>
+<ul>
+<li>Automatic generation has some major restrictions:
+<ul>
+<li>Only works on elements inside the next lowest nfdi-header level 🐛.</li>
+<li>Example: 'header h2' will be missing.<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>header h2<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>header h1.1<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>header h1.1<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li>Example: 'header h3' will be missing.<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>header h1.1<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>header h3<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>header h1.2<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>header h2<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li>👀 If you are interested, any help is welcome (<a href="https://github.com/nfdi4plants/web-components/issues/15">here</a>).</li>
+</ul>
+</li>
+</ul>
 <nfdi-h3 id="custom-properties-5">Custom Properties</nfdi-h3>
 <ul>
 <li><code>--link-color</code>: set color of generated in-page links. (Default: <a href="https://github.com/nfdi4plants/Branding#lightblue">nfdi-lightblue</a>)</li>
@@ -314,17 +338,27 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 </pre></div>
 </div>
 <br>
-<p><img src="../images/WebComponents/nfdi-code.png?v0.5.2" alt="nfdi-code" />
-<em>v0.5.2</em></p>
+<p><img src="../images/WebComponents/nfdi-code.png?v0.5.4" alt="nfdi-code" />
+<em>v0.5.4</em></p>
 <p>This component can be used to display code snippets similar to <code>&lt;pre&gt;</code> html elements. Any text inside will be presented exactly as written.</p>
+<p>Add <code>class=&quot;language-*&quot;</code> to the element to specify the language for syntax highlighting.</p>
 <p><strong>Features</strong></p>
 <ul>
 <li>Comes with copy-to-clipboard button.</li>
+<li>Inlcuded line numbers and <a href="https://prismjs.com">prismjs</a> syntax highlighting. Supports syntax highlighting for:
+<ul>
+<li><code>markup</code>, <code>html</code>, <code>xml</code>, <code>css</code></li>
+<li><code>fsharp</code>, <code>csharp</code>, <code>clike</code></li>
+<li><code>javascript</code>, <code>typescript</code></li>
+<li><code>bash</code></li>
+<li><code>markdown</code></li>
+</ul>
+</li>
 </ul>
 <nfdi-h3 id="slots-2">Slots</nfdi-h3>
 <div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
-    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-code</span><span style="color:Blue;">&gt;</span>#r &quot;nuget: DynamicObj, 1.0.1&quot;
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-code</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;language-fsharp&quot;</span><span style="color:Blue;">&gt;</span>#r &quot;nuget: DynamicObj, 1.0.1&quot;
 #r &quot;nuget: Expecto, 9.0.4&quot;
 
 open DynamicObj
