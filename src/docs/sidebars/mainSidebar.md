@@ -14,13 +14,13 @@ To-Dos:
 ```Web Components
 # Web Components:/web-components-docs/docs/WebComponents.html
 ## Style:/web-components-docs/docs/WebComponents.html#style
-## nfdi-navbar:/web-components-docs/docs/WebComponents.html#nfdinavbar
-## nfdi-footer:/web-components-docs/docs/WebComponents.html#nfdifooter
-## nfdi-body:/web-components-docs/docs/WebComponents.html#nfdibody
-## nfdi-sidebar-element:/web-components-docs/docs/WebComponents.html#nfdisidebarelement
-## nfdi-header:/web-components-docs/docs/WebComponents.html#nfdiheader
-## nfdi-toc:/web-components-docs/docs/WebComponents.html#nfditoc
-## nfdi-code:/web-components-docs/docs/WebComponents.html#nfdicode
+## nfdi-navbar:/web-components-docs/docs/WebComponents.html#nfdi-navbar
+## nfdi-footer:/web-components-docs/docs/WebComponents.html#nfdi-footer
+## nfdi-body:/web-components-docs/docs/WebComponents.html#nfdi-body
+## nfdi-sidebar-element:/web-components-docs/docs/WebComponents.html#nfdi-sidebarelement
+## nfdi-header:/web-components-docs/docs/WebComponents.html#nfdi-header
+## nfdi-toc:/web-components-docs/docs/WebComponents.html#nfdi-toc
+## nfdi-code:/web-components-docs/docs/WebComponents.html#nfdi-code
 ```
 
 ```Development
