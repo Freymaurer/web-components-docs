@@ -1,19 +1,19 @@
 ---
 layout: docs
 title: Web Components
-published: 2022-06-06
+published: 2022-06-09
 Author: Kevin Frey
 add toc: false
 add sidebar: sidebars\mainSidebar.md
 ---
 
-- [&#60;nfdi-navbar&#62;](#nfdinavbar)
-- [&#60;nfdi-footer&#62;](#nfdifooter)
-- [&#60;nfdi-body&#62;](#nfdibody)
-- [&#60;nfdi-sidebar-element&#62;](#nfdisidebarelement)
-- [&#60;nfdi-header&#62;](#nfdiheader)
-- [&#60;nfdi-toc&#62;](#nfditoc)
-- [&#60;nfdi-code&#62;](#nfdicode)
+- [&#60;nfdi-navbar&#62;](#nfdi-navbar)
+- [&#60;nfdi-footer&#62;](#nfdi-footer)
+- [&#60;nfdi-body&#62;](#nfdi-body)
+- [&#60;nfdi-sidebar-element&#62;](#nfdi-sidebarelement)
+- [&#60;nfdi-header&#62;](#nfdi-header)
+- [&#60;nfdi-toc&#62;](#nfdi-toc)
+- [&#60;nfdi-code&#62;](#nfdi-code)
 
 ## Style
 
@@ -247,6 +247,24 @@ Slotless component to automatically create table of contents.
 **Features**
 - Finds all [`nfdi-header`](/#nfdiheader) in `nfdi-body`, nests them according to lowest depth and creates `<ul>`, `<li>` elements with the in-page links.
 
+**Known Issues**
+- Automatic generation has some major restrictions:
+    - Only works on elements inside the next lowest nfdi-header level :bug:.
+    - Example: 'header h2' will be missing.
+      ```html
+      <nfdi-h2>header h2</nfdi-h2>
+      <nfdi-h1>header h1.1</nfdi-h1>
+      <nfdi-h1>header h1.1</nfdi-h1>
+      ```
+    - Example: 'header h3' will be missing.
+      ```html
+      <nfdi-h1>header h1.1</nfdi-h1>
+      <nfdi-h2>header h3</nfdi-h2>
+      <nfdi-h1>header h1.2</nfdi-h1>
+      <nfdi-h2>header h2</nfdi-h2>
+      ```
+    - 👀 If you are interested, any help is welcome ([here](https://github.com/nfdi4plants/web-components/issues/15)).
+
 ### Custom Properties
 
 - `--link-color`: set color of generated in-page links. (Default: [nfdi-lightblue][nfdi-lightblue])
@@ -261,19 +279,27 @@ Slotless component to automatically create table of contents.
 
 <br>
 
-![nfdi-code](../images/WebComponents/nfdi-code.png?v0.5.2)
-*v0.5.2*
+![nfdi-code](../images/WebComponents/nfdi-code.png?v0.5.4)
+*v0.5.4*
 
 This component can be used to display code snippets similar to `<pre>` html elements. Any text inside will be presented exactly as written.
 
+Add `class="language-*"` to the element to specify the language for syntax highlighting.
+
 **Features**
 - Comes with copy-to-clipboard button.
+- Inlcuded line numbers and [prismjs](https://prismjs.com) syntax highlighting. Supports syntax highlighting for:
+    - `markup`, `html`, `xml`, `css`
+    - `fsharp`, `csharp`, `clike`
+    - `javascript`, `typescript`
+    - `bash`
+    - `markdown`
 
 ### Slots
 
 ```html
 <nfdi-body>
-    <nfdi-code>#r "nuget: DynamicObj, 1.0.1"
+    <nfdi-code class="language-fsharp">#r "nuget: DynamicObj, 1.0.1"
 #r "nuget: Expecto, 9.0.4"
 
 open DynamicObj
