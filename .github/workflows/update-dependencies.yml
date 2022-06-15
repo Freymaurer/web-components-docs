@@ -34,10 +34,13 @@ jobs:
         with:
           dotnet-version: 5.0.102
 
-      - name: Setup node & sass
+      - name: Setup node
         uses: actions/setup-node@v2
         with:
           node-version: '12'
+
+      - name: Install packages
+        run: npm install
 
       - name: Update to latest nfdi4plants web components
         run: npm install @nfdi4plants/web-components@latest
