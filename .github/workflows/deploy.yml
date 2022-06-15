@@ -48,6 +48,9 @@ jobs:
       - name: Restore dotnet tools
         run: dotnet tool restore
         
+      - name: Restore dependencies
+        run: dotnet paket install
+
       - name: Build
         working-directory: ./src
         run: dotnet fornax build
