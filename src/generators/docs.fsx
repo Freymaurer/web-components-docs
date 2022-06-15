@@ -2,15 +2,17 @@
 #load "layout.fsx"
 
 open Html
+open Fornax.Nfdi4Plants
+open Layout
 
 let generate' (ctx : SiteContents) (page: string) =
     let doc =
-        ctx.TryGetValues<Docsloader.Docs> ()
+        ctx.TryGetValues<DocsData> ()
         |> Option.defaultValue Seq.empty
         |> Seq.find (fun n -> n.file = page)
 
     Layout.layout ctx doc.title [
-        Layout.docsLayout doc
+        Components.docsLayout baseUrl doc
     ]
 
 let generate (ctx : SiteContents) (projectRoot: string) (page: string) =

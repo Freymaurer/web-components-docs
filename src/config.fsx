@@ -29,7 +29,6 @@ let staticPredicate (projectRoot: string, page: string) =
         page.Contains ".ionide"
     fileShouldBeExcluded |> not
 
-
 let config = {
     Generators = [
         {Script = "less.fsx"; Trigger = OnFileExt ".less"; OutputFile = ChangeExtension "css" }

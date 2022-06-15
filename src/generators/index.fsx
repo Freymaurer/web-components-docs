@@ -3,8 +3,11 @@
 
 open Html
 
+open Fornax.Nfdi4Plants
+open Layout
+
 let generate' (ctx : SiteContents) (_: string) =
-    let docs0 = ctx.TryGetValues<Docsloader.Docs> () |> Option.defaultValue Seq.empty
+    let docs0 = ctx.TryGetValues<DocsData> () |> Option.defaultValue Seq.empty
 
     // let layoutForMinimalDocsAncestor (docsLists: seq<HtmlElement> list) =
     //     Layout.layout ctx "Home" [
@@ -29,12 +32,11 @@ let generate' (ctx : SiteContents) (_: string) =
     // |> layoutForMinimalDocsAncestor
     // |> Layout.render ctx
 
-    let landingPage = docs0 |> Seq.tryFind(fun x -> x.title = "Index")
+    let landingPage = docs0 |> Seq.tryFind(fun x -> x.title = "Index" || x.title = "Home")
     match landingPage with
     | Some docs -> 
-        printfn "found!"
         Layout.layout ctx docs.title [
-            docs |> Layout.docsLayout
+            docs |> Components.docsLayout baseUrl
         ]
     | None -> 
         failwith "Could not find index markdown file (title: 'Index') in docs folder."
