@@ -97,71 +97,61 @@
 <nfdi-h2 id="style">Style</nfdi-h2>
 <nfdi-h3 id="based-on-bulma">Based on Bulma</nfdi-h3>
 <p>The DataPLANT web components were built with the basic Bulma style sheet in mind. It is highly recommended to reference the Bulma style sheet for all projects which use the DataPLANT web components.</p>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">link</span> <span style="color:Red;">rel</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;stylesheet&quot;</span> <span style="color:Red;">href</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css&quot;</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css&quot;&gt;
+</code></pre>
 <p><em>Or see <a href="https://bulma.io/documentation/overview/start/">here</a> for the official docs.</em></p>
 <nfdi-h3 id="custom-properties-css-variables">Custom Properties -  CSS variables</nfdi-h3>
 <p>Nearly all web components come with the possibility to change the default color scheme by applying custom CSS variables to the html document. Each web component comes with a description of available variables and their default values.
 If you are using the <code>nfdi-body</code> for documentation it is highly recommended to use the following css snippet to apply a consistent styling to the child elements inside the body.</p>
-<div class="lang-css editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:#A31515;">nfdi-toc</span>, <span style="color:#A31515;">nfdi-body </span>{
-    <span style="color:Red;">--outside-background-color</span>: <span style="color:Blue;">rgb(240, 243, 246)</span>;
-    <span style="color:Red;">--header-color</span>: <span style="color:Blue;">rgb(10, 12, 16)</span>
-    <span style="color:Red;">--element-text-color</span>: <span style="color:Blue;">#0E1116</span>;
-    <span style="color:Red;">--element-background-color</span>: <span style="color:Blue;">#fff</span>;
-    <span style="color:Red;">--accent-text-color</span>: <span style="color:Blue;">rgb(31, 194, 167)</span>;
-    <span style="color:Red;">--link-color</span>: <span style="color:Blue;">#4FB3D9</span>;
-    <span style="color:Red;">--link-hover-color</span>: <span style="color:Blue;">#8ad3ee</span>;
+<pre><code class="language-css">nfdi-toc, nfdi-body {
+    --outside-background-color: rgb(240, 243, 246);
+    --header-color: rgb(10, 12, 16)
+    --element-text-color: #0E1116;
+    --element-background-color: #fff;
+    --accent-text-color: rgb(31, 194, 167);
+    --link-color: #4FB3D9;
+    --link-hover-color: #8ad3ee;
 }
 
-<span style="color:#A31515;">body </span>{
-    <span style="color:Red;">margin</span>: <span style="color:Blue;">0px</span>;
+body {
+    margin: 0px;
 }
 
-<span style="color:#A31515;">thead tr th</span>, <span style="color:#A31515;">strong </span>{
-    <span style="color:Red;">color</span>: <span style="color:Blue;">var(--accent-text-color) !important</span>
+thead tr th, strong {
+    color: var(--accent-text-color) !important
 }
 
-<span style="color:#A31515;">a </span>{
-    <span style="color:Red;">color</span>: <span style="color:Blue;">var(--link-color, #4FB3D9) !important</span>;
+a {
+    color: var(--link-color, #4FB3D9) !important;
 }
 
-<span style="color:#A31515;">a:hover </span>{
-    <span style="color:Red;">color</span>: <span style="color:Blue;">var(--link-hover-color, #3A3A3A) !important</span>;
+a:hover {
+    color: var(--link-hover-color, #3A3A3A) !important;
 }
 
-<span style="color:#A31515;">thead </span>{
-    <span style="color:Red;">font-size</span>: <span style="color:Blue;">1.2rem</span>;
+thead {
+    font-size: 1.2rem;
 }
-</pre></div>
-</div>
+</code></pre>
 <nfdi-h2 id="nfdi-navbar">nfdi-navbar</nfdi-h2>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-navbar</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-navbar</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-navbar&gt;&lt;/nfdi-navbar&gt;
+</code></pre>
 <br>
 <p><img src="../images/WebComponents/nfdi-navbar.png?v0.5.2" alt="nfdi-navbar" />
 <em>v0.5.2</em></p>
 <p>Slotless component with responsive design at 1024px media query. Fixed top and requires <code>padding-top: 3.25rem</code> to be added to html.</p>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">html</span> <span style="color:Red;">style</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;padding-top: 3.25rem&quot;</span><span style="color:Blue;">&gt;</span>
+<pre><code class="language-html">&lt;html style=&quot;padding-top: 3.25rem&quot;&gt;
 ...
-<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">html</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+&lt;/html&gt;
+</code></pre>
 <nfdi-h3 id="custom-properties">Custom Properties</nfdi-h3>
 <ul>
 <li><code>--element-background-color</code>, set &quot;background-color&quot; of navbar. (Default: <a href="https://github.com/nfdi4plants/Branding#darkblue">nfdi-darkblue</a>)</li>
 <li><code>--element-text-color</code>, set &quot;color&quot;, &quot;border-color&quot; and &quot;navbar-divider&quot; color. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-white</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-footer">nfdi-footer</nfdi-h2>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-footer</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-footer</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-footer&gt;&lt;/nfdi-footer&gt;
+</code></pre>
 <br>
 <p><img src="../images/WebComponents/nfdi-footer.png?v0.5.2" alt="nfdi-navbar" />
 <em>v0.5.2</em></p>
@@ -175,10 +165,8 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 <li><code>--header-color</code>, set color to html header elements. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-white</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-body">nfdi-body</nfdi-h2>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-&lt;nfdi-body [class=&quot;content&quot;] [hassidebar=&quot;true&quot;]&gt;<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-body [class=&quot;content&quot;] [hassidebar=&quot;true&quot;]&gt;&lt;/nfdi-body&gt;
+</code></pre>
 <p>The top level container element for the main documentation design.</p>
 <p><img src="../images/WebComponents/nfdi-body.png?v0.5.2" alt="nfdi-navbar" />
 <em>v0.5.2</em></p>
@@ -193,26 +181,22 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 </ul>
 <nfdi-h3 id="slots">Slots</nfdi-h3>
 <p>Child elements will go to &quot;Main Content Area&quot;</p>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-body</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;content&quot;</span> <span style="color:Red;">hassidebar</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;true&quot;</span><span style="color:Blue;">&gt;</span>
-    <span style="color:Green;">&lt;!-- no specified slot --&gt;</span>
-    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">h1</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;front-header&quot;</span><span style="color:Blue;">&gt;</span>Index<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">h1</span><span style="color:Blue;">&gt;</span>
-    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">i</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;help&quot;</span><span style="color:Blue;">&gt;</span>last updated at 2022-06-06<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">i</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-body class=&quot;content&quot; hassidebar=&quot;true&quot;&gt;
+    &lt;!-- no specified slot --&gt;
+    &lt;h1 class=&quot;front-header&quot;&gt;Index&lt;/h1&gt;
+    &lt;i class=&quot;help&quot;&gt;last updated at 2022-06-06&lt;/i&gt;
+&lt;/nfdi-body&gt;
+</code></pre>
 <nfdi-h4 id="sidebar-slot"><strong>sidebar-slot</strong></nfdi-h4>
 <p>Use this slot to specify an [<code>nfdi-sidebar-element</code>][#nfdi-sidebar-element).</p>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-body</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;content&quot;</span> <span style="color:Red;">hassidebar</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;true&quot;</span><span style="color:Blue;">&gt;</span>
-    <span style="color:Green;">&lt;!-- sidebar slot --&gt;</span>
-    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-sidebar-element</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;sidebar&quot;</span> <span style="color:Red;">isactive</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;true&quot;</span><span style="color:Blue;">&gt;</span>
-        <span style="color:Blue;">&lt;</span><span style="color:#A31515;">div</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;title&quot;</span><span style="color:Blue;">&gt;</span>General<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">div</span><span style="color:Blue;">&gt;</span>
-        <span style="color:Blue;">&lt;</span><span style="color:#A31515;">h1</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;inner&quot;</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;</span><span style="color:#A31515;">a</span> <span style="color:Red;">href</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;/index.html&quot;</span><span style="color:Blue;">&gt;</span>Home<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">a</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">h1</span><span style="color:Blue;">&gt;</span>
-    <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-sidebar-element</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-body class=&quot;content&quot; hassidebar=&quot;true&quot;&gt;
+    &lt;!-- sidebar slot --&gt;
+    &lt;nfdi-sidebar-element slot=&quot;sidebar&quot; isactive=&quot;true&quot;&gt;
+        &lt;div slot=&quot;title&quot;&gt;General&lt;/div&gt;
+        &lt;h1 slot=&quot;inner&quot;&gt;&lt;a href=&quot;/index.html&quot;&gt;Home&lt;/a&gt;&lt;/h1&gt;
+    &lt;/nfdi-sidebar-element&gt;
+&lt;/nfdi-body&gt;
+</code></pre>
 <nfdi-h3 id="html-attributes">Html Attributes</nfdi-h3>
 <ul>
 <li><code>hasSidebar</code>/<code>hassidebar</code>: set to &quot;true&quot; to display the sidebar. (Default: &quot;false&quot;)</li>
@@ -223,10 +207,8 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 <li><code>--element-text-color</code>, set &quot;color&quot;, &quot;border-color&quot;. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-sidebar-element">nfdi-sidebar-element</nfdi-h2>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-&lt;nfdi-sidebar-element slot=&quot;sidebar&quot; [isActive=true]&gt;<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-sidebar-element</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-sidebar-element slot=&quot;sidebar&quot; [isActive=true]&gt;&lt;/nfdi-sidebar-element&gt;
+</code></pre>
 <br>
 <p>Stackable element in &quot;Sidebar Area&gt; of body. MUST be slotted in &quot;sidebar&quot; slot of <code>nfdi-body</code>.</p>
 <p><strong>Features</strong>:</p>
@@ -239,13 +221,11 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 </li>
 </ul>
 <nfdi-h3 id="slots-1">Slots</nfdi-h3>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-sidebar-element</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;sidebar&quot;</span> <span style="color:Red;">isactive</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;true&quot;</span><span style="color:Blue;">&gt;</span>
-    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">div</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;title&quot;</span><span style="color:Blue;">&gt;</span>General<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">div</span><span style="color:Blue;">&gt;</span>
-    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">h1</span> <span style="color:Red;">slot</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;inner&quot;</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;</span><span style="color:#A31515;">a</span> <span style="color:Red;">href</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;/index.html&quot;</span><span style="color:Blue;">&gt;</span>Home<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">a</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">h1</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-sidebar-element</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-sidebar-element slot=&quot;sidebar&quot; isactive=&quot;true&quot;&gt;
+    &lt;div slot=&quot;title&quot;&gt;General&lt;/div&gt;
+    &lt;h1 slot=&quot;inner&quot;&gt;&lt;a href=&quot;/index.html&quot;&gt;Home&lt;/a&gt;&lt;/h1&gt;
+&lt;/nfdi-sidebar-element&gt;
+</code></pre>
 <nfdi-h4 id="title-slot"><strong>title-slot</strong></nfdi-h4>
 <p>Use this slot to specify the header of one sidebar element block.</p>
 <nfdi-h4 id="inner-slot"><strong>inner-slot</strong></nfdi-h4>
@@ -265,15 +245,13 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 <li><code>--sidebar-background-color</code> set &quot;background-color&quot; of &quot;Sidebar Area&quot;. (Default: transparent)</li>
 </ul>
 <nfdi-h2 id="nfdi-header">nfdi-header</nfdi-h2>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>Metadata<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>Metadata 2<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h3</span><span style="color:Blue;">&gt;</span>Metadata 3<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h3</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h4</span><span style="color:Blue;">&gt;</span>Metadata 4<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h4</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h5</span><span style="color:Blue;">&gt;</span>Metadata 5<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h5</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h6</span><span style="color:Blue;">&gt;</span>Metadata 6<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h6</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-h1&gt;Metadata&lt;/nfdi-h1&gt;
+&lt;nfdi-h2&gt;Metadata 2&lt;/nfdi-h2&gt;
+&lt;nfdi-h3&gt;Metadata 3&lt;/nfdi-h3&gt;
+&lt;nfdi-h4&gt;Metadata 4&lt;/nfdi-h4&gt;
+&lt;nfdi-h5&gt;Metadata 5&lt;/nfdi-h5&gt;
+&lt;nfdi-h6&gt;Metadata 6&lt;/nfdi-h6&gt;
+</code></pre>
 <br>
 <p><img src="../images/WebComponents/nfdi-header.png?v0.5.2" alt="nfdi-header" /></p>
 <p><em>v0.5.2</em></p>
@@ -290,10 +268,8 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 <li><code>--header-color</code>: set color to header elements. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-toc">nfdi-toc</nfdi-h2>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-toc</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-toc</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-toc&gt;&lt;/nfdi-toc&gt;
+</code></pre>
 <br>
 <p><img src="../images/WebComponents/nfdi-toc.png?v0.5.2" alt="nfdi-toc" />
 <em>v0.5.2</em></p>
@@ -307,20 +283,18 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 <li>Automatic generation has some major restrictions:
 <ul>
 <li>Only works on elements inside the next lowest nfdi-header level 🐛.</li>
-<li>Example: 'header h2' will be missing.<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>header h2<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>header h1.1<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>header h1.1<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<li>Example: 'header h2' will be missing.
+<pre><code class="language-html">&lt;nfdi-h2&gt;header h2&lt;/nfdi-h2&gt;
+&lt;nfdi-h1&gt;header h1.1&lt;/nfdi-h1&gt;
+&lt;nfdi-h1&gt;header h1.1&lt;/nfdi-h1&gt;
+</code></pre>
 </li>
-<li>Example: 'header h3' will be missing.<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>header h1.1<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>header h3<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>header h1.2<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h1</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>header h2<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-h2</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<li>Example: 'header h3' will be missing.
+<pre><code class="language-html">&lt;nfdi-h1&gt;header h1.1&lt;/nfdi-h1&gt;
+&lt;nfdi-h2&gt;header h3&lt;/nfdi-h2&gt;
+&lt;nfdi-h1&gt;header h1.2&lt;/nfdi-h1&gt;
+&lt;nfdi-h2&gt;header h2&lt;/nfdi-h2&gt;
+</code></pre>
 </li>
 <li>👀 If you are interested, any help is welcome (<a href="https://github.com/nfdi4plants/web-components/issues/15">here</a>).</li>
 </ul>
@@ -333,10 +307,8 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 <li><code>--element-text-color</code>: set color to list style elements. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-code">nfdi-code</nfdi-h2>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-code</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-code</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+<pre><code class="language-html">&lt;nfdi-code&gt;&lt;/nfdi-code&gt;
+</code></pre>
 <br>
 <p><img src="../images/WebComponents/nfdi-code.png?v0.5.4" alt="nfdi-code" />
 <em>v0.5.4</em></p>
@@ -356,9 +328,8 @@ If you are using the <code>nfdi-body</code> for documentation it is highly recom
 </li>
 </ul>
 <nfdi-h3 id="slots-2">Slots</nfdi-h3>
-<div class="lang-html editor-colors"><div style="color:Black;background-color:White;"><pre>
-<span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
-    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">nfdi-code</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">&quot;language-fsharp&quot;</span><span style="color:Blue;">&gt;</span>#r &quot;nuget: DynamicObj, 1.0.1&quot;
+<pre><code class="language-html">&lt;nfdi-body&gt;
+    &lt;nfdi-code class=&quot;language-fsharp&quot;&gt;#r &quot;nuget: DynamicObj, 1.0.1&quot;
 #r &quot;nuget: Expecto, 9.0.4&quot;
 
 open DynamicObj
@@ -373,10 +344,9 @@ type JsonParser = {
     static member create tokenType value = {
         TokenType = tokenType
         Value = value
-    }<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-code</span><span style="color:Blue;">&gt;</span>
-<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">nfdi-body</span><span style="color:Blue;">&gt;</span>
-</pre></div>
-</div>
+    }&lt;/nfdi-code&gt;
+&lt;/nfdi-body&gt;
+</code></pre>
 <nfdi-h3 id="custom-properties-6">Custom Properties</nfdi-h3>
 <ul>
 <li><code>--accent-text-color</code>: set the colored border on the left. (Default: <a href="https://github.com/nfdi4plants/Branding#lightblue">nfdi-lightblue</a>)</li>
