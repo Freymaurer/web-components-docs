@@ -6,8 +6,7 @@ name: update-dependencies
 on:
   # Triggers the workflow every 5 minutes
   schedule:
-    # 0 20 * * WED
-    - cron: '/30 * * * *'
+    - cron: '30,0 * * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
