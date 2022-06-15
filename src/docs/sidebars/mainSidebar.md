@@ -17,7 +17,7 @@ To-Dos:
 ## nfdi-navbar:/web-components-docs/docs/WebComponents.html#nfdi-navbar
 ## nfdi-footer:/web-components-docs/docs/WebComponents.html#nfdi-footer
 ## nfdi-body:/web-components-docs/docs/WebComponents.html#nfdi-body
-## nfdi-sidebar-element:/web-components-docs/docs/WebComponents.html#nfdi-sidebarelement
+## nfdi-sidebar-element:/web-components-docs/docs/WebComponents.html#nfdi-sidebar-element
 ## nfdi-header:/web-components-docs/docs/WebComponents.html#nfdi-header
 ## nfdi-toc:/web-components-docs/docs/WebComponents.html#nfdi-toc
 ## nfdi-code:/web-components-docs/docs/WebComponents.html#nfdi-code
