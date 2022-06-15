@@ -39,8 +39,8 @@ jobs:
         with:
           node-version: '12'
 
-      - name: Install packages
-        run: npm install
+      - name: Install rollup
+        run: npm install --global rollup
 
       - name: Update to latest nfdi4plants web components
         run: npm install @nfdi4plants/web-components@latest
