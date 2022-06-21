@@ -78,9 +78,7 @@ thead {
 Slotless component with responsive design at 1024px media query. Fixed top and requires `padding-top: 3.25rem` to be added to html.
 
 ```html
-<html style="padding-top: 3.25rem">
-...
-</html>
+<html style="padding-top: 3.25rem"></html>
 ```
 
 ### Custom Properties
