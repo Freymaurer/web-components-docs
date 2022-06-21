@@ -66,7 +66,7 @@ const t={ATTRIBUTE:1,CHILD:2,PROPERTY:3,BOOLEAN_ATTRIBUTE:4,EVENT:5,ELEMENT:6},e
  */class e extends i{constructor(i){if(super(i),this.it=w,i.type!==t.CHILD)throw Error(this.constructor.directiveName+"() can only be used in child bindings")}render(r){if(r===w||null==r)return this.ft=void 0,this.it=r;if(r===b)return r;if("string"!=typeof r)throw Error(this.constructor.directiveName+"() called with a non-string value");if(r===this.it)return this.ft;this.it=r;const s=[r];return s.raw=s,this.ft={_$litType$:this.constructor.resultType,strings:s,values:[]}}}e.directiveName="unsafeHTML",e.resultType=1;const o=e$1(e);
 
 const nfdiMint = r$2`#1FC2A7`;
-const nfdiMintDarker20 = r$2`#199b86`;
+const nfdiMintDarker20$1 = r$2`#199b86`;
 const nfdiLightblue = r$2`#4FB3D9`;
 const nfdiDarkblue = r$2`#2D3E50`;
 const nfdiDarkblueLighter20 = r$2`#576573`;
@@ -1430,7 +1430,7 @@ a.box:active {
   color: #fff;
 }
 .button.is-primary:hover, .button.is-primary.is-hovered {
-  background-color: ${nfdiMintDarker20};
+  background-color: ${nfdiMintDarker20$1};
   border-color: transparent;
   color: #fff;
 }
@@ -3234,7 +3234,7 @@ a.tag:hover {
   max-width: 100%;
 }
 
-.number {
+/* .number {
   align-items: center;
   background-color: whitesmoke;
   border-radius: 290486px;
@@ -3247,7 +3247,7 @@ a.tag:hover {
   padding: 0.25rem 0.5rem;
   text-align: center;
   vertical-align: top;
-}
+} */
 
 /* Bulma Form */
 .select select, .textarea, .input {
@@ -3727,7 +3727,7 @@ a.tag:hover {
   color: #fff;
 }
 .file.is-primary:hover .file-cta, .file.is-primary.is-hovered .file-cta {
-  background-color: ${nfdiMintDarker20};
+  background-color: ${nfdiMintDarker20$1};
   border-color: transparent;
   color: #fff;
 }
@@ -11058,7 +11058,7 @@ let Footer = class extends s$1 {
                         </div>
                         <div class="block">
                         <li>
-                            <a href="${mainPageBaseUrl}content/docs/research-data-management.html">
+                            <a href="${mainPageBaseUrl}content/docs/ResearchDataManagement.html">
                             Knowledge Base
                             </a>
                         </li>
@@ -11545,7 +11545,7 @@ function toInDOMHref(href) {
   }
 }
 const removeSpecialCharRegex = /[^a-zA-Z0-9\s\-]/g;
-function createInPageLinkText(innerHtml) {
+function createInPageId(innerHtml) {
   const lightDOMText = innerHtml.trim();
   return lightDOMText.toLowerCase().replace(removeSpecialCharRegex, "").replace(/\s/g, "-");
 }
@@ -11558,7 +11558,7 @@ let H1 = class extends s$1 {
     setTimeout(() => {
       let lightDOMText = this.innerHTML.trim();
       this.text = lightDOMText;
-      let id = createInPageLinkText(lightDOMText);
+      let id = createInPageId(lightDOMText);
       this.id = id;
       this.textId = id;
     });
@@ -11586,7 +11586,7 @@ let H2 = class extends s$1 {
     setTimeout(() => {
       let lightDOMText = this.innerHTML.trim();
       this.text = lightDOMText;
-      let id = lightDOMText.toLowerCase().replace(removeSpecialCharRegex, "").replace(/\s/g, "-");
+      let id = createInPageId(lightDOMText);
       this.id = id;
       this.textId = id;
     });
@@ -11614,7 +11614,7 @@ let H3 = class extends s$1 {
     setTimeout(() => {
       let lightDOMText = this.innerHTML.trim();
       this.text = lightDOMText;
-      let id = lightDOMText.toLowerCase().replace(removeSpecialCharRegex, "").replace(/\s/g, "-");
+      let id = createInPageId(lightDOMText);
       this.id = id;
       this.textId = id;
     });
@@ -11642,7 +11642,7 @@ let H4 = class extends s$1 {
     setTimeout(() => {
       let lightDOMText = this.innerHTML.trim();
       this.text = lightDOMText;
-      let id = lightDOMText.toLowerCase().replace(removeSpecialCharRegex, "").replace(/\s/g, "-");
+      let id = createInPageId(lightDOMText);
       this.id = id;
       this.textId = id;
     });
@@ -11670,7 +11670,7 @@ let H5 = class extends s$1 {
     setTimeout(() => {
       let lightDOMText = this.innerHTML.trim();
       this.text = lightDOMText;
-      let id = lightDOMText.toLowerCase().replace(removeSpecialCharRegex, "").replace(/\s/g, "-");
+      let id = createInPageId(lightDOMText);
       this.id = id;
       this.textId = id;
     });
@@ -11698,7 +11698,7 @@ let H6 = class extends s$1 {
     setTimeout(() => {
       let lightDOMText = this.innerHTML.trim();
       this.text = lightDOMText;
-      let id = lightDOMText.toLowerCase().replace(removeSpecialCharRegex, "").replace(/\s/g, "-");
+      let id = createInPageId(lightDOMText);
       this.id = id;
       this.textId = id;
     });
@@ -11895,11 +11895,18 @@ function isLight(color) {
     return false;
   }
 }
-const prismStyles = r$2`
+let cssString0 = `
 code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
-pre[class*=language-].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*=language-].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}
-.token a{color:inherit}
 `;
+const prismTokenString = "#690";
+const prismTokenClassName = "#dd4a68";
+const prismTokenPunctuation = "#999";
+const prismTokenImportant = "#e90";
+const nfdiRedDarker30 = "#871528";
+const nfdiMintDarker20 = "#199b86";
+const nfdiYellowDarker20 = "#cc9a00";
+let cssString = cssString0.replace(prismTokenString, nfdiRedDarker30).replace(prismTokenClassName, nfdiMintDarker20).replace(prismTokenPunctuation, nfdiYellowDarker20).replace(prismTokenImportant, nfdiYellowDarker20);
+const prismStyles = r$2`${o$5(cssString)}`;
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var prism = { exports: {} };
 (function(module) {
@@ -13780,6 +13787,68 @@ Prism.languages.insertBefore("fsharp", "string", {
   });
   Prism2.languages.dotnet = Prism2.languages.cs = Prism2.languages.csharp;
 })(Prism);
+Prism.languages.python = {
+  "comment": {
+    pattern: /(^|[^\\])#.*/,
+    lookbehind: true,
+    greedy: true
+  },
+  "string-interpolation": {
+    pattern: /(?:f|fr|rf)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,
+    greedy: true,
+    inside: {
+      "interpolation": {
+        pattern: /((?:^|[^{])(?:\{\{)*)\{(?!\{)(?:[^{}]|\{(?!\{)(?:[^{}]|\{(?!\{)(?:[^{}])+\})+\})+\}/,
+        lookbehind: true,
+        inside: {
+          "format-spec": {
+            pattern: /(:)[^:(){}]+(?=\}$)/,
+            lookbehind: true
+          },
+          "conversion-option": {
+            pattern: /![sra](?=[:}]$)/,
+            alias: "punctuation"
+          },
+          rest: null
+        }
+      },
+      "string": /[\s\S]+/
+    }
+  },
+  "triple-quoted-string": {
+    pattern: /(?:[rub]|br|rb)?("""|''')[\s\S]*?\1/i,
+    greedy: true,
+    alias: "string"
+  },
+  "string": {
+    pattern: /(?:[rub]|br|rb)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,
+    greedy: true
+  },
+  "function": {
+    pattern: /((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,
+    lookbehind: true
+  },
+  "class-name": {
+    pattern: /(\bclass\s+)\w+/i,
+    lookbehind: true
+  },
+  "decorator": {
+    pattern: /(^[\t ]*)@\w+(?:\.\w+)*/m,
+    lookbehind: true,
+    alias: ["annotation", "punctuation"],
+    inside: {
+      "punctuation": /\./
+    }
+  },
+  "keyword": /\b(?:_(?=\s*:)|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,
+  "builtin": /\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,
+  "boolean": /\b(?:False|None|True)\b/,
+  "number": /\b0(?:b(?:_?[01])+|o(?:_?[0-7])+|x(?:_?[a-f0-9])+)\b|(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)(?:e[+-]?\d+(?:_\d+)*)?j?(?!\w)/i,
+  "operator": /[-+%=]=?|!=|:=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,
+  "punctuation": /[{}[\];(),.:]/
+};
+Prism.languages.python["string-interpolation"].inside["interpolation"].inside.rest = Prism.languages.python;
+Prism.languages.py = Prism.languages.python;
 var __defProp$2 = Object.defineProperty;
 var __getOwnPropDesc$2 = Object.getOwnPropertyDescriptor;
 var __decorateClass$2 = (decorators, target, key, kind) => {
@@ -13791,20 +13860,12 @@ var __decorateClass$2 = (decorators, target, key, kind) => {
     __defProp$2(target, key, result);
   return result;
 };
-const NEW_LINE_EXP = /\n(?!$)/g;
-let lineNumbersWrapper;
-prism.exports.hooks.add("after-tokenize", function(env) {
-  const match = env.code.match(NEW_LINE_EXP);
-  const linesNum = match ? match.length + 1 : 1;
-  const lines = new Array(linesNum + 1).join("<span></span>");
-  lineNumbersWrapper = `<span aria-hidden="true" class="line-numbers-rows">${lines}</span>`;
-});
 function suggestedHighlight(code, language) {
   if (prism.exports.languages[language]) {
-    return prism.exports.highlight(code, prism.exports.languages[language], language) + lineNumbersWrapper;
+    return prism.exports.highlight(code, prism.exports.languages[language], language);
   } else {
     console.log("grammar not found");
-    return prism.exports.util.encode(code).toString() + lineNumbersWrapper;
+    return prism.exports.util.encode(code).toString();
   }
 }
 let Code = class extends s$1 {
@@ -13848,14 +13909,14 @@ let Code = class extends s$1 {
         this.style.setProperty("--code-text-color", newC);
       }
       const languageArr = this.className.match(/language-[a-z]+/);
-      const language = languageArr[0];
+      const language = languageArr ? languageArr[0] : "language-";
       let c = (_a = this.shadowRoot) == null ? void 0 : _a.getElementById("code");
       c == null ? void 0 : c.classList.add(language);
       if (c != void 0 && customBGC !== "") {
         const newC = isLight(customBGC) ? "black" : "white";
         c.style.color = newC;
       }
-      this.highlightedCode = suggestedHighlight(this.innerHTML, "fsharp");
+      this.highlightedCode = suggestedHighlight(this.innerHTML, language.replace("language-", ""));
       this.requestUpdate();
     });
   }
@@ -13864,7 +13925,7 @@ Code.styles = [
   bulmaStyles,
   prismStyles,
   r$2`
-            pre {
+            /* pre {
                 background-color: var(--outside-background-color,${nfdiWhite});
                 border: 1px solid #ddd;
                 border-left: 3px solid var(--accent-text-color,${nfdiLightblue});
@@ -13876,11 +13937,11 @@ Code.styles = [
                 margin-bottom: 1.6em;
                 max-width: 100%;
                 overflow: auto;
-                padding: 1em 1.5em;
+                padding: 1em 1.5em; 
                 display: block;
                 word-wrap: break-word;
                 position: relative
-            }
+            } */
 
             .copybutton {
                 position: absolute;
@@ -14121,7 +14182,7 @@ let SidebarElement = class extends s$1 {
           headers.filter(filterExistingNFDIHeaders).forEach((header0) => {
             const header = header0;
             const distanceTopHeader = header.offsetTop;
-            if (scrollY + 50 >= distanceTopHeader) {
+            if (scrollY + 200 >= distanceTopHeader) {
               current = "#" + header.id;
             }
           });
