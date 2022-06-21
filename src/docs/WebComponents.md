@@ -10,7 +10,7 @@ add sidebar: sidebars\mainSidebar.md
 - [&#60;nfdi-navbar&#62;](#nfdi-navbar)
 - [&#60;nfdi-footer&#62;](#nfdi-footer)
 - [&#60;nfdi-body&#62;](#nfdi-body)
-- [&#60;nfdi-sidebar-element&#62;](#nfdi-sidebarelement)
+- [&#60;nfdi-sidebar-element&#62;](#nfdi-sidebar-element)
 - [&#60;nfdi-header&#62;](#nfdi-header)
 - [&#60;nfdi-toc&#62;](#nfdi-toc)
 - [&#60;nfdi-code&#62;](#nfdi-code)
@@ -67,7 +67,7 @@ thead {
 ## nfdi-navbar
 
 ```html
-<nfdi-navbar></nfdi-navbar>
+<script type="text/plain"><nfdi-navbar></nfdi-navbar></script>
 ```
 
 <br>
@@ -78,7 +78,7 @@ thead {
 Slotless component with responsive design at 1024px media query. Fixed top and requires `padding-top: 3.25rem` to be added to html.
 
 ```html
-<html style="padding-top: 3.25rem"></html>
+<script type="text/plain"><html style="padding-top: 3.25rem"></html></script>
 ```
 
 ### Custom Properties
@@ -89,7 +89,7 @@ Slotless component with responsive design at 1024px media query. Fixed top and r
 ## nfdi-footer
 
 ```html
-<nfdi-footer></nfdi-footer>
+<script type="text/plain"><nfdi-footer></nfdi-footer></script>
 ```
 
 <br>
@@ -110,7 +110,7 @@ Slotless component.
 ## nfdi-body
 
 ```html
-<nfdi-body [class="content"] [hassidebar="true"]></nfdi-body>
+<script type="text/plain"><nfdi-body [class="content"] [hassidebar="true"]></nfdi-body></script>
 ```
 
 The top level container element for the main documentation design.
@@ -129,24 +129,24 @@ This element will contain all documentation content in its "Main Content Area". 
 Child elements will go to "Main Content Area"
 
 ```html
-<nfdi-body class="content" hassidebar="true">
-    <!-- no specified slot -->
+<script type="text/plain"><nfdi-body class="content" hassidebar="true">
     <h1 class="front-header">Index</h1>
     <i class="help">last updated at 2022-06-06</i>
-</nfdi-body>
+</nfdi-body></script>
 ```
 
+
 #### **sidebar-slot**
-Use this slot to specify an [`nfdi-sidebar-element`][#nfdi-sidebar-element).
+Use this slot to specify an [nfdi-sidebar-element](#nfdi-sidebar-element).
 
 ```html
-<nfdi-body class="content" hassidebar="true">
+<script type="text/plain"><nfdi-body class="content" hassidebar="true">
     <!-- sidebar slot -->
     <nfdi-sidebar-element slot="sidebar" isactive="true">
         <div slot="title">General</div>
         <h1 slot="inner"><a href="/index.html">Home</a></h1>
     </nfdi-sidebar-element>
-</nfdi-body>
+</nfdi-body></script>
 ```
 
 ### Html Attributes
@@ -161,7 +161,7 @@ Use this slot to specify an [`nfdi-sidebar-element`][#nfdi-sidebar-element).
 ## nfdi-sidebar-element
 
 ```html
-<nfdi-sidebar-element slot="sidebar" [isActive=true]></nfdi-sidebar-element>
+<script type="text/plain"><nfdi-sidebar-element slot="sidebar" [isActive=true]></nfdi-sidebar-element></script>
 ```
 
 <br>
@@ -176,10 +176,10 @@ Stackable element in "Sidebar Area> of body. MUST be slotted in "sidebar" slot o
 ### Slots
 
 ```html
-<nfdi-sidebar-element slot="sidebar" isactive="true">
+<script type="text/plain"><nfdi-sidebar-element slot="sidebar" isactive="true">
     <div slot="title">General</div>
     <h1 slot="inner"><a href="/index.html">Home</a></h1>
-</nfdi-sidebar-element>
+</nfdi-sidebar-element></script>
 ```
 
 #### **title-slot**
@@ -203,12 +203,12 @@ Use this slot with any of [`h1`, `h2`, `h3`]. to create sidebar links.
 ## nfdi-header
 
 ```html
-<nfdi-h1>Metadata</nfdi-h1>
+<script type="text/plain"><nfdi-h1>Metadata</nfdi-h1>
 <nfdi-h2>Metadata 2</nfdi-h2>
 <nfdi-h3>Metadata 3</nfdi-h3>
 <nfdi-h4>Metadata 4</nfdi-h4>
 <nfdi-h5>Metadata 5</nfdi-h5>
-<nfdi-h6>Metadata 6</nfdi-h6>
+<nfdi-h6>Metadata 6</nfdi-h6></script>
 ```
 
 <br>
@@ -232,7 +232,7 @@ Use with one child element as text. Will propagate html.
 ## nfdi-toc
 
 ```html
-<nfdi-toc></nfdi-toc>
+<script type="text/plain"><nfdi-toc></nfdi-toc></script>
 ```
 
 <br>
@@ -250,16 +250,16 @@ Slotless component to automatically create table of contents.
     - Only works on elements inside the next lowest nfdi-header level :bug:.
     - Example: 'header h2' will be missing.
       ```html
-      <nfdi-h2>header h2</nfdi-h2>
+      <script type="text/plain"><nfdi-h2>header h2</nfdi-h2>
       <nfdi-h1>header h1.1</nfdi-h1>
-      <nfdi-h1>header h1.1</nfdi-h1>
+      <nfdi-h1>header h1.1</nfdi-h1></script>
       ```
     - Example: 'header h3' will be missing.
       ```html
-      <nfdi-h1>header h1.1</nfdi-h1>
+      <script type="text/plain"><nfdi-h1>header h1.1</nfdi-h1>
       <nfdi-h2>header h3</nfdi-h2>
       <nfdi-h1>header h1.2</nfdi-h1>
-      <nfdi-h2>header h2</nfdi-h2>
+      <nfdi-h2>header h2</nfdi-h2></script>
       ```
     - 👀 If you are interested, any help is welcome ([here](https://github.com/nfdi4plants/web-components/issues/15)).
 
@@ -272,17 +272,21 @@ Slotless component to automatically create table of contents.
 ## nfdi-code
 
 ```html
-<nfdi-code></nfdi-code>
+<script type="text/plain"><nfdi-code></nfdi-code></script>
 ```
 
-<br>
-
-![nfdi-code](../images/WebComponents/nfdi-code.png?v0.5.4)
-*v0.5.4*
+![nfdi-code](../images/WebComponents/nfdi-code.png?v0.6.0)
+*v0.6.0*
 
 This component can be used to display code snippets similar to `<pre>` html elements. Any text inside will be presented exactly as written.
 
 Add `class="language-*"` to the element to specify the language for syntax highlighting.
+
+If you want to showcase html code, it is recommended to add a `<script>` tag.
+
+```html
+<nfdi-code class="language-html"><script type="text/plain"><p>Hi!</p></script></nfdi-code>
+```
 
 **Features**
 - Comes with copy-to-clipboard button.
@@ -292,11 +296,12 @@ Add `class="language-*"` to the element to specify the language for syntax highl
     - `javascript`, `typescript`
     - `bash`
     - `markdown`
+    - `python`
 
 ### Slots
 
 ```html
-<nfdi-body>
+<script type="text/plain"><nfdi-body>
     <nfdi-code class="language-fsharp">#r "nuget: DynamicObj, 1.0.1"
 #r "nuget: Expecto, 9.0.4"
 
@@ -313,7 +318,7 @@ type JsonParser = {
         TokenType = tokenType
         Value = value
     }</nfdi-code>
-</nfdi-body>
+</nfdi-body></script>
 ```
 
 ### Custom Properties

@@ -9,30 +9,7 @@ open Layout
 let generate' (ctx : SiteContents) (_: string) =
     let docs0 = ctx.TryGetValues<DocsData> () |> Option.defaultValue Seq.empty
 
-    // let layoutForMinimalDocsAncestor (docsLists: seq<HtmlElement> list) =
-    //     Layout.layout ctx "Home" [
-    //         section [Class "section"] [
-    //             div [Class "container"] [
-    //                 yield! docsLists
-    //                 |> List.map (fun docs ->
-    //                     div [Class "tile is-ancestor"] [
-    //                         yield! docs
-    //                     ]
-    //                 )
-    //             ]
-    //         ]
-    //     ]
-
-    // // Use this for a tile based landing page
-    // docs0    
-    // |> Seq.sortByDescending (fun x -> x.published)
-    // |> Seq.chunkBySize 3
-    // |> Seq.map (Seq.map Layout.docsMinimalLayout)
-    // |> Seq.toList
-    // |> layoutForMinimalDocsAncestor
-    // |> Layout.render ctx
-
-    let landingPage = docs0 |> Seq.tryFind(fun x -> x.title = "Index" || x.title = "Home")
+    let landingPage = docs0 |> Seq.tryFindBack(fun x -> x.title = "Index" || x.title = "Home")
     match landingPage with
     | Some docs -> 
         Layout.layout ctx docs.title [

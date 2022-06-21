@@ -1,11 +1,15 @@
-// #r "../_lib/Fornax.Core.dll"
-// #r "../_lib/Markdig.dll"
+#r "../_lib/Fornax.Core.dll"
+#r "../_lib/Markdig.dll"
 #load "../../.paket/load/net5.0/main.group.fsx"
 
 open System.IO
 open Fornax.Nfdi4Plants
 
 let contentDir = "docs"
+
+type DocsConfig = {
+    disableLiveRefresh: bool
+}
 
 let loader (projectRoot: string) (siteContent: SiteContents) =
     let docsPath = Path.Combine(projectRoot, contentDir)
@@ -17,7 +21,12 @@ let loader (projectRoot: string) (siteContent: SiteContents) =
         |> Array.filter (fun n -> n.Contains "README.md" |> not)
     let docs = 
         files 
-        |> Array.map (Fornax.Nfdi4Plants.Docs.loadFile projectRoot contentDir)
+        |> Array.map (Docs.loadFile projectRoot contentDir)
+
+    let docs0 = siteContent.TryGetValues<DocsData> () |> Option.defaultValue Seq.empty
+
+    printfn "LOADER: %A" <| Seq.length docs0
+
     docs
     |> Array.iter siteContent.Add
 

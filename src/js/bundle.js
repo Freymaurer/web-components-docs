@@ -13871,7 +13871,10 @@ function suggestedHighlight(code, language) {
 let Code = class extends s$1 {
   render() {
     return $`
-            <pre id="code" class="line-numbers"><button class="button is-small copybutton is-ghost" @click=${this._copyTextToClipboard}>copy</button><code>${o(this.highlightedCode)}<slot></slot></code></pre>
+            <div>
+                <button class="button is-small copybutton is-ghost" @click=${this._copyTextToClipboard}>copy</button>
+                <pre id="code" class="line-numbers"><code>${o(this.highlightedCode)}<slot></slot></code></pre>
+            </div>
         `;
   }
   fallbackCopyTextToClipboard(text) {
@@ -13916,16 +13919,21 @@ let Code = class extends s$1 {
         const newC = isLight(customBGC) ? "black" : "white";
         c.style.color = newC;
       }
-      this.highlightedCode = suggestedHighlight(this.innerHTML, language.replace("language-", ""));
+      const start = '<script type="text/plain">';
+      const end = "<\/script>";
+      function trimCode(code) {
+        const trimStart = code.startsWith(start) ? code.slice(start.length) : code;
+        return trimStart.endsWith(end) ? trimStart.slice(0, trimStart.length - end.length) : trimStart;
+      }
+      this.highlightedCode = suggestedHighlight(trimCode(this.innerHTML), language.replace("language-", ""));
       this.requestUpdate();
     });
   }
 };
 Code.styles = [
-  bulmaStyles,
   prismStyles,
   r$2`
-            /* pre {
+            div {
                 background-color: var(--outside-background-color,${nfdiWhite});
                 border: 1px solid #ddd;
                 border-left: 3px solid var(--accent-text-color,${nfdiLightblue});
@@ -13937,11 +13945,58 @@ Code.styles = [
                 margin-bottom: 1.6em;
                 max-width: 100%;
                 overflow: auto;
-                padding: 1em 1.5em; 
                 display: block;
                 word-wrap: break-word;
                 position: relative
-            } */
+            }
+
+            /* from bulma except: remove border-radius */
+            .button {
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                align-items: center;
+                border: 1px solid transparent;
+                box-shadow: none;
+                display: inline-flex;
+                font-size: 1rem;
+                height: 2.5em;
+                justify-content: flex-start;
+                line-height: 1.5;
+                padding-bottom: calc(0.5em - 1px);
+                padding-left: calc(0.75em - 1px);
+                padding-right: calc(0.75em - 1px);
+                padding-top: calc(0.5em - 1px);
+                position: relative;
+                vertical-align: top;
+            }
+
+            .button.is-small {
+                font-size: 0.75rem;
+            }
+
+            .button:focus, .button.is-focused {
+                border-color: #3273dc;
+                color: #363636;
+            }
+            .button:focus:not(:active), .button.is-focused:not(:active) {
+                box-shadow: 0 0 0 0.125em rgba(79, 179, 217, 0.25);
+            }
+            .button:active, .button.is-active {
+                border-color: #4a4a4a;
+                color: #363636;
+            }
+
+            .button.is-ghost {
+                background: none;
+                border-color: transparent;
+                color: #4FB3D9;
+                text-decoration: none;
+            }
+
+            .button.is-ghost:hover, .button.is-ghost.is-hovered {
+                color: #4FB3D9;
+                text-decoration: underline;
+            }
 
             .copybutton {
                 position: absolute;

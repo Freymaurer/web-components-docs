@@ -47,7 +47,6 @@ let layout (ctx : SiteContents) (activePageTitle: string) bodyCnt =
 
     html [Class "has-navbar-fixed-top"; HtmlProperties.Style [CSSProperties.Custom("scroll-behavior", "smooth")]] [
         head [] [
-            
             meta [CharSet "utf-8"]
             meta [Name "viewport"; Content "width=device-width, initial-scale=1"]
             title [] [!! ttl]
@@ -105,8 +104,7 @@ let layout (ctx : SiteContents) (activePageTitle: string) bodyCnt =
     ]
 
 let render (ctx : SiteContents) cnt =
-  cnt
-  |> HtmlElement.ToString
-  #if WATCH
-  |> injectWebsocketCode 
-  #endif
+    let disableLiveRefresh = ctx.TryGetValue<DocsConfig> () |> Option.map (fun n -> n.disableLiveRefresh) |> Option.defaultValue false
+    cnt
+    |> HtmlElement.ToString
+    |> fun n -> if disableLiveRefresh then n else injectWebsocketCode n

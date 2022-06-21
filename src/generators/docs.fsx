@@ -9,7 +9,7 @@ let generate' (ctx : SiteContents) (page: string) =
     let doc =
         ctx.TryGetValues<DocsData> ()
         |> Option.defaultValue Seq.empty
-        |> Seq.find (fun n -> n.file = page)
+        |> Seq.findBack (fun n -> n.file = page)
 
     Layout.layout ctx doc.title [
         Components.docsLayout baseUrl doc
