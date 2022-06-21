@@ -93,21 +93,18 @@
 <p>For projects without bundling, you can use  <a href="https://rollupjs.org/guide/en/">rollup</a> as an easy to use bundler:</p>
 <nfdi-h3 id="extensive-explanation-for-rollup-setup">Extensive explanation for rollup setup</nfdi-h3>
 <ol>
-<li>Create a <code>package.json</code> with:
-<pre><code class="language-json">{
-    &quot;dependencies&quot;: {
-        &quot;@nfdi4plants/web-components&quot;: &quot;^0.3.0&quot;,
+<li>Create a <code>package.json</code> with:<nfdi-code class="language-json">{
+    "dependencies": {
+        "@nfdi4plants/web-components": "^0.3.0",
     },
-    &quot;devDependencies&quot;: {
-        &quot;@rollup/plugin-node-resolve&quot;: &quot;^13.1.3&quot;,
-        &quot;rollup&quot;: &quot;^2.70.1&quot;
+    "devDependencies": {
+        "@rollup/plugin-node-resolve": "^13.1.3",
+        "rollup": "^2.70.1"
     }
-}
-</code></pre>
+}</nfdi-code>
 Feel free to use the latest <code>@nfdi4plants/web-components</code> version.</li>
 <li>Run <code>npm install</code>.</li>
-<li>Create a <code>rollup.config.js</code> with
-<pre><code class="language-js">import { nodeResolve } from '@rollup/plugin-node-resolve';
+<li>Create a <code>rollup.config.js</code> with<nfdi-code class="language-js">import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 // https://rollupjs.org/guide/en/#configuration-files
 export default {
@@ -118,13 +115,10 @@ output: {
 },
 // https://github.com/rollup/plugins/tree/master/packages/node-resolve
 plugins: [nodeResolve()]
-};
-</code></pre>
+};</nfdi-code>
 </li>
-<li>Create js file which references all web-components, exmp:
-<pre><code class="language-js">// main.js
-import {Navbar, Footer} from &quot;@nfdi4plants/web-components&quot;;
-</code></pre>
+<li>Create js file which references all web-components, exmp:<nfdi-code class="language-js">// main.js
+import {Navbar, Footer} from "@nfdi4plants/web-components";</nfdi-code>
 </li>
 <li>Run <code>rollup --config rollup.config.js</code>.</li>
 <li>Reference <code>bundle.js</code> as shown <a href="https://lit.dev/docs/tools/adding-lit/#use-your-component">here</a>.</li>
