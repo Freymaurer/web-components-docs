@@ -282,7 +282,7 @@ This component can be used to display code snippets similar to `<pre>` html elem
 
 Add `class="language-*"` to the element to specify the language for syntax highlighting.
 
-If you want to showcase html code, it is recommended to add a `<script>` tag.
+👀 If you want to showcase html code, it is recommended to add a `<script>` tag.
 
 ```html
 <nfdi-code class="language-html"><script type="text/plain"><p>Hi!</p></script></nfdi-code>
