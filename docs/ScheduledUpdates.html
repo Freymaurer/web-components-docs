@@ -3,7 +3,7 @@
     <meta charSet="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>
-      DataPLANT documentation - List of projects using nfdi4plants/web-components
+      DataPLANT documentation - Configure scheduled updates
     </title>
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -83,19 +83,90 @@
 
       </nfdi-sidebar-element>
       <h1 class="front-header">
-        List of projects using nfdi4plants/web-components
+        Configure scheduled updates
       </h1>
       <i class="help">
-        last updated at 2022-06-06
+        last updated at 2022-06-27
       </i>
-      <nfdi-toc></nfdi-toc>
-      <p>Here you can find a list of repositories/projects using the <em>nfdi4plants/web-components</em></p>
-<ul>
-<li><a href="https://github.com/nfdi4plants/nfdi4plants.github.io">nfdi-homepage</a></li>
-<li><a href="https://github.com/Freymaurer/nfdi-helpdesk">nfdi-helpdesk</a></li>
-<li>dataplant-registration-frontend, found at bwcloud Gitlab Freiburg</li>
-<li>keycloak theme for gitlab login, found at bwcloud Gitlab Freiburg</li>
-</ul>
+      <p>To make maintanence of multiple websites easier, you can configure scheduled updates with GitHub actions.</p>
+<nfdi-h2 id="setup">Setup</nfdi-h2>
+<p>Add <code>update-dependencies.yml</code> (or any other name) file to <code>.github/workflows</code> in your root folder.</p>
+<nfdi-code class="language-yml">name: update-dependencies
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow at 21pm (depends on timezone) // once a week: (0 18 * * THU)
+  schedule:
+    - cron: '0 21 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "update_dependencies"
+  update_dependencies:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Setup dotnet environment
+      - name: Setup .NET 3.1
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.301
+          
+      # Setup dotnet environment    
+      - name: Setup .NET 5
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.102
+
+      # Install node + npm
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      # Install rollup for bundling (needs setup described in "installation")
+      - name: Install rollup
+        run: npm install --global rollup
+
+      # Update @nfdi4plants/web-components
+      - name: Update to latest nfdi4plants web components
+        run: npm install @nfdi4plants/web-components@latest
+
+      # Bundle web components with rollup
+      - name: Bundle npm packages
+        run: rollup --config rollup.config.js
+          
+      # This Part is Fornax specific and installs paket
+      - name: Restore dotnet tools
+        run: dotnet tool restore
+        
+      # Update Nfdi4Plants.Fornax via Paket
+      - name: Update to latest Nfdi4Plants.Fornax version
+        run: dotnet paket update Nfdi4Plants.Fornax
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update @nfdi4plants/web-components & Nfdi4Plants.Fornax ⬆️</nfdi-code>
+<p>This specific example will update <code>@nfdi4plants/web-components</code> via npm and rollup <strong>and</strong> <code>Nfdi4Plants.Fornax</code> via paket. Should you use another GitHub action to deploy for example to gh-pages. You can add the following trigger event to trigger the deploy event after updating:</p>
+<nfdi-code class="language-yml"># Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  # triggers when "update-dependencies" is completed
+  workflow_run:
+    workflows: [ update-dependencies ]
+    types: [ completed ]</nfdi-code>
 
       <h3>
         Dataplant Support
@@ -112,7 +183,7 @@
         .
       </div>
       <div>
-        <a target="_blank" href="https://github.com/nfdi4plants/web-components-docs/blob/main/src/docs/ProjectList.md" style="margin-left: auto; display: block; width: 130px;">
+        <a target="_blank" href="https://github.com/nfdi4plants/web-components-docs/blob/main/src/docs/ScheduledUpdates.md" style="margin-left: auto; display: block; width: 130px;">
           ✏️ Edit this page
         </a>
       </div>
