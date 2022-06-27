@@ -11,7 +11,7 @@ To-Dos:
 # Configure Scheduled Updates:/web-components-docs/docs/ScheduledUpdates.html
 # List of Projects:/web-components-docs/docs/ProjectList.html
 # Supported Static Site Generators:/web-components-docs/docs/SupportedStaticSiteGenerators.html
-## Fornax:/web-components-docs/docs/SupportedStaticSiteGenerators#Fornax.html
+## Fornax:/web-components-docs/docs/SupportedStaticSiteGenerators#fornax
 ```
 
 ```Web Components
