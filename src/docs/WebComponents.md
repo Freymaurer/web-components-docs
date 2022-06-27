@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Web Components
-published: 2022-06-09
+published: 2022-06-27
 Author: Kevin Frey
 add toc: false
 add sidebar: sidebars\mainSidebar.md
@@ -292,6 +292,7 @@ Add `class="language-*"` to the element to specify the language for syntax highl
 - Comes with copy-to-clipboard button.
 - Inlcuded line numbers and [prismjs](https://prismjs.com) syntax highlighting. Supports syntax highlighting for:
     - `markup`, `html`, `xml`, `css`
+    - `JSON`, `YAML`
     - `fsharp`, `csharp`, `clike`
     - `javascript`, `typescript`
     - `bash`
