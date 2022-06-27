@@ -23,9 +23,9 @@ let loader (projectRoot: string) (siteContent: SiteContents) =
         files 
         |> Array.map (Docs.loadFile projectRoot contentDir)
 
-    let docs0 = siteContent.TryGetValues<DocsData> () |> Option.defaultValue Seq.empty
+    // let docs0 = siteContent.TryGetValues<DocsData> () |> Option.defaultValue Seq.empty
 
-    printfn "LOADER: %A" <| Seq.length docs0
+    // printfn "LOADER: %A" <| Seq.length docs0
 
     docs
     |> Array.iter siteContent.Add

@@ -8,6 +8,7 @@ To-Dos:
 ```General
 # Home:/web-components-docs/
 # Installation:/web-components-docs/docs/Installation.html
+# Configure Scheduled Updates:/web-components-docs/docs/ScheduledUpdates.html
 # List of Projects:/web-components-docs/docs/ProjectList.html
 ```
 

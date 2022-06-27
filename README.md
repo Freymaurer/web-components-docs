@@ -1,4 +1,4 @@
-# nfdi4plants-fornax-template
+# @nfdi4plants/web-components docs
 
 **[Link to gh-pages](https://nfdi4plants.github.io/web-components-docs/)**
 
@@ -11,6 +11,7 @@
 3. Run `dotnet paket install` in root directory.
 4. Run `dotnet fornax watch` in `\src` folder.
 5. Open page in browser.
+
 
 ## update web-components
 
