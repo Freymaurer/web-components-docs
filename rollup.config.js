@@ -1,4 +1,5 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { terser } from "rollup-plugin-terser";
 
 // https://rollupjs.org/guide/en/#configuration-files
 export default {
@@ -8,5 +9,5 @@ export default {
     format: 'cjs'
   },
   // https://github.com/rollup/plugins/tree/master/packages/node-resolve
-  plugins: [nodeResolve()]
+  plugins: [nodeResolve(), terser()]
 };

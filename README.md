@@ -12,10 +12,9 @@
 4. Run `dotnet fornax watch` in `\src` folder.
 5. Open page in browser.
 
-
 ## update web-components
 
-Check out the installation docs on [nfdi4plants/web-components](https://github.com/nfdi4plants/web-components#installation). For fornax you will need to bundle the web-components with rollup. See the respective section for more information.
+Check out the [installation](https://nfdi4plants.github.io/web-components-docs/docs/Installation.html) docs. For fornax you will need to bundle the web-components with rollup. See the respective section for more information.
 
 ## update Nfdi4Plants.Fornax
 
