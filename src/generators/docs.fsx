@@ -7,12 +7,12 @@ open Layout
 
 let generate' (ctx : SiteContents) (page: string) =
     let doc =
-        ctx.TryGetValues<DocsData> ()
+        ctx.TryGetValues<Docs> ()
         |> Option.defaultValue Seq.empty
         |> Seq.findBack (fun n -> n.file = page)
 
     Layout.layout ctx doc.title [
-        Components.docsLayout baseUrl doc
+        Components.docsLayout(baseUrl, doc)
     ]
 
 let generate (ctx : SiteContents) (projectRoot: string) (page: string) =

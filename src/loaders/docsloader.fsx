@@ -17,11 +17,20 @@ let loader (projectRoot: string) (siteContent: SiteContents) =
     // let files = Directory.GetFiles(docsPath, "*"), options)
     let files = 
         Directory.GetFiles(docsPath, "*")
+        |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not && n.Contains "/_sidebars/" |> not)
+        |> Array.filter (fun n -> n.Contains @"\_ignored\" |> not && n.Contains "/_ignored/" |> not)
         |> Array.filter (fun n -> n.EndsWith ".md")
         |> Array.filter (fun n -> n.Contains "README.md" |> not)
+    
     let docs = 
+        let loadDocs (filePath:string) = 
+            #if WATCH
+            Docs.loadFile(projectRoot, contentDir, filePath)
+            #else
+            Docs.loadFile(projectRoot, contentDir, filePath, productionBasePath = "web-components-docs")
+            #endif
         files 
-        |> Array.map (Docs.loadFile projectRoot contentDir)
+        |> Array.map loadDocs
 
     // let docs0 = siteContent.TryGetValues<DocsData> () |> Option.defaultValue Seq.empty
 
@@ -29,6 +38,8 @@ let loader (projectRoot: string) (siteContent: SiteContents) =
 
     docs
     |> Array.iter siteContent.Add
+
+    printfn "[DOCS-LOADER] Done!"
 
     siteContent.Add({disableLiveRefresh = false})
     siteContent

@@ -4,7 +4,7 @@ title: Configure scheduled updates
 published: 2022-06-27
 Author: Kevin Frey
 add toc: false
-add sidebar: sidebars\mainSidebar.md
+add sidebar: _sidebars\mainSidebar.md
 ---
 
 To make maintanence of multiple websites easier, you can configure scheduled updates with GitHub actions.

@@ -4,7 +4,7 @@ title: Supported Static Site Generators
 published: 2022-06-27
 Author: Kevin Frey
 add toc: true
-add sidebar: sidebars\mainSidebar.md
+add sidebar: _sidebars\mainSidebar.md
 ---
 
 ## Fornax
@@ -49,7 +49,7 @@ To add more documentation, add a markdown file to `\src\docs`. The file MUST sta
 layout: docs
 title: Metadata
 published: 2022-05-09
-Author: Dominik Brilhaus <https://orcid.org/0000-0001-9021-3197>
+Author: Dominik Brilhaus
 add toc: true
 add sidebar: sidebars\mainSidebar.md
 Article Status: Publishable
@@ -75,7 +75,15 @@ To-Dos:
 
 #### Sidebar
 
-Sidebar files MAY be in ANY **subdirectory** of `\src\docs`. Sidebar markdown files must start with a metadata block:
+Sidebar files MUST be in ANY **subdirectory** of `\src\docs`, which is excempted from docs layout parsing ``. 
+
+```fsharp
+let files = 
+    Directory.GetFiles(docsPath, "*")
+    |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not && n.Contains "/_sidebars/" |> not)
+```
+
+Sidebar markdown files must start with a metadata block:
 
 ```yml
 ---

@@ -4,7 +4,7 @@ title: Development
 published: 2022-06-06
 Author: Kevin Frey
 add toc: false
-add sidebar: sidebars\mainSidebar.md
+add sidebar: _sidebars\mainSidebar.md
 ---
 
 ## Set up

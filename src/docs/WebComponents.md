@@ -4,7 +4,7 @@ title: Web Components
 published: 2022-06-27
 Author: Kevin Frey
 add toc: false
-add sidebar: sidebars\mainSidebar.md
+add sidebar: _sidebars\mainSidebar.md
 ---
 
 - [&#60;nfdi-navbar&#62;](#nfdi-navbar)
