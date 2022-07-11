@@ -57,7 +57,7 @@
 <h1 slot="inner" href="/web-components-docs/docs/ScheduledUpdates.html">Configure Scheduled Updates</h1>
 <h1 slot="inner" href="/web-components-docs/docs/ProjectList.html">List of Projects</h1>
 <h1 slot="inner" href="/web-components-docs/docs/SupportedStaticSiteGenerators.html">Supported Static Site Generators</h1>
-<h2 slot="inner" href="/web-components-docs/docs/SupportedStaticSiteGenerators#fornax">Fornax</h2>
+<h2 slot="inner" href="/web-components-docs/docs/SupportedStaticSiteGenerators.html#fornax">Fornax</h2>
 
       </nfdi-sidebar-element>
       <nfdi-sidebar-element slot="sidebar" isActive="true">
@@ -123,7 +123,7 @@ nuget Nfdi4Plants.Fornax</nfdi-code>
 layout: docs
 title: Metadata
 published: 2022-05-09
-Author: Dominik Brilhaus <https://orcid.org/0000-0001-9021-3197>
+Author: Dominik Brilhaus
 add toc: true
 add sidebar: sidebars\mainSidebar.md
 Article Status: Publishable
@@ -156,7 +156,11 @@ To-Dos:
 <li>MAY contain <strong>any</strong> other metadata. The information will be read but will not affect the generated html.</li>
 </ul>
 <nfdi-h4 id="sidebar">Sidebar</nfdi-h4>
-<p>Sidebar files MAY be in ANY <strong>subdirectory</strong> of <code>\src\docs</code>. Sidebar markdown files must start with a metadata block:</p>
+<p>Sidebar files MUST be in ANY <strong>subdirectory</strong> of <code>\src\docs</code>, which is excempted from docs layout parsing ``.</p>
+<nfdi-code class="language-fsharp">let files = 
+    Directory.GetFiles(docsPath, "*")
+    |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not && n.Contains "/_sidebars/" |> not)</nfdi-code>
+<p>Sidebar markdown files must start with a metadata block:</p>
 <nfdi-code class="language-yml">---
 published: 2022-05-09
 Article Status: Publishable
