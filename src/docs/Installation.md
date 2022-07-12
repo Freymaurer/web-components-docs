@@ -23,32 +23,23 @@ For projects without bundling, you can use  [rollup](https://rollupjs.org/guide/
     ```json
     {
         "dependencies": {
-            "@nfdi4plants/web-components": "^0.3.0",
+            "@nfdi4plants/web-components": "^0.6.1",
         },
         "devDependencies": {
             "@rollup/plugin-node-resolve": "^13.1.3",
-            "rollup": "^2.70.1"
+            "@web/rollup-plugin-copy": "^0.3.0",
+            "@web/rollup-plugin-html": "^1.10.3",
+            "rollup": "^2.70.1",
+            "rollup-plugin-minify-html-literals": "^1.2.6",
+            "rollup-plugin-summary": "^1.4.3",
+            "rollup-plugin-terser": "^7.0.2"
         }
     }
     ```
     Feel free to use the latest `@nfdi4plants/web-components` version.
 2. Run `npm install`.
-3. Create a `rollup.config.js` with
-    ```js
-    import { nodeResolve } from '@rollup/plugin-node-resolve';
-
-    // https://rollupjs.org/guide/en/#configuration-files
-    export default {
-    input: 'src/js/main.js',
-    output: {
-        file: 'src/js/bundle.js',
-        format: 'cjs'
-    },
-    // https://github.com/rollup/plugins/tree/master/packages/node-resolve
-    plugins: [nodeResolve()]
-    };
-    ```
-4. Create js file which references all web-components, exmp:
+3. Create a `rollup.config.js` like [here](https://github.com/nfdi4plants/web-components-docs/blob/main/rollup.config.js).
+4. Create js file which references all web-components, [exmp](https://github.com/nfdi4plants/web-components-docs/blob/main/src/js/main.js):
     ```js
     // main.js
     import {Navbar, Footer} from "@nfdi4plants/web-components";
