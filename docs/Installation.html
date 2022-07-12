@@ -98,29 +98,22 @@
 <ol>
 <li>Create a <code>package.json</code> with:<nfdi-code class="language-json">{
     "dependencies": {
-        "@nfdi4plants/web-components": "^0.3.0",
+        "@nfdi4plants/web-components": "^0.6.1",
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^13.1.3",
-        "rollup": "^2.70.1"
+        "@web/rollup-plugin-copy": "^0.3.0",
+        "@web/rollup-plugin-html": "^1.10.3",
+        "rollup": "^2.70.1",
+        "rollup-plugin-minify-html-literals": "^1.2.6",
+        "rollup-plugin-summary": "^1.4.3",
+        "rollup-plugin-terser": "^7.0.2"
     }
 }</nfdi-code>
 Feel free to use the latest <code>@nfdi4plants/web-components</code> version.</li>
 <li>Run <code>npm install</code>.</li>
-<li>Create a <code>rollup.config.js</code> with<nfdi-code class="language-js">import { nodeResolve } from '@rollup/plugin-node-resolve';
-
-// https://rollupjs.org/guide/en/#configuration-files
-export default {
-input: 'src/js/main.js',
-output: {
-    file: 'src/js/bundle.js',
-    format: 'cjs'
-},
-// https://github.com/rollup/plugins/tree/master/packages/node-resolve
-plugins: [nodeResolve()]
-};</nfdi-code>
-</li>
-<li>Create js file which references all web-components, exmp:<nfdi-code class="language-js">// main.js
+<li>Create a <code>rollup.config.js</code> like <a href="https://github.com/nfdi4plants/web-components-docs/blob/main/rollup.config.js">here</a>.</li>
+<li>Create js file which references all web-components, <a href="https://github.com/nfdi4plants/web-components-docs/blob/main/src/js/main.js">exmp</a>:<nfdi-code class="language-js">// main.js
 import {Navbar, Footer} from "@nfdi4plants/web-components";</nfdi-code>
 </li>
 <li>Run <code>rollup --config rollup.config.js</code>.</li>

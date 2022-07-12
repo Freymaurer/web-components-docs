@@ -1,9 +1,9 @@
-"use strict";
 /**
  * @license
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const e=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,i=Symbol(),t=new WeakMap;class o{constructor(e,t,o){if(this._$cssResult$=!0,o!==i)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let i=this.o;const o=this.t;if(e&&void 0===i){const e=void 0!==o&&1===o.length;e&&(i=t.get(o)),void 0===i&&((this.o=i=new CSSStyleSheet).replaceSync(this.cssText),e&&t.set(o,i))}return i}toString(){return this.cssText}}const a=(e,...t)=>{const a=1===e.length?e[0]:t.reduce(((i,t,o)=>i+(e=>{if(!0===e._$cssResult$)return e.cssText;if("number"==typeof e)return e;throw Error("Value passed to 'css' function must be a 'css' function result: "+e+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(t)+e[o+1]),e[0]);return new o(a,e,i)},r=e?e=>e:e=>e instanceof CSSStyleSheet?(e=>{let t="";for(const i of e.cssRules)t+=i.cssText;return(e=>new o("string"==typeof e?e:e+"",void 0,i))(t)})(e):e
+ */
+const e=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,i=Symbol(),t=new WeakMap;class o{constructor(e,t,o){if(this._$cssResult$=!0,o!==i)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let i=this.o;const o=this.t;if(e&&void 0===i){const e=void 0!==o&&1===o.length;e&&(i=t.get(o)),void 0===i&&((this.o=i=new CSSStyleSheet).replaceSync(this.cssText),e&&t.set(o,i))}return i}toString(){return this.cssText}}const a=(e,...t)=>{const a=1===e.length?e[0]:t.reduce(((i,t,o)=>i+(e=>{if(!0===e._$cssResult$)return e.cssText;if("number"==typeof e)return e;throw Error("Value passed to 'css' function must be a 'css' function result: "+e+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(t)+e[o+1]),e[0]);return new o(a,e,i)},r=e?e=>e:e=>e instanceof CSSStyleSheet?(e=>{let t="";for(const i of e.cssRules)t+=i.cssText;return(e=>new o("string"==typeof e?e:e+"",void 0,i))(t)})(e):e
 /**
  * @license
  * Copyright 2017 Google LLC
