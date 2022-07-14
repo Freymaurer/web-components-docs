@@ -109,12 +109,14 @@
         "rollup-plugin-summary": "^1.4.3",
         "rollup-plugin-terser": "^7.0.2"
     }
-}</nfdi-code>
+}
+</nfdi-code>
 Feel free to use the latest <code>@nfdi4plants/web-components</code> version.</li>
 <li>Run <code>npm install</code>.</li>
 <li>Create a <code>rollup.config.js</code> like <a href="https://github.com/nfdi4plants/web-components-docs/blob/main/rollup.config.js">here</a>.</li>
 <li>Create js file which references all web-components, <a href="https://github.com/nfdi4plants/web-components-docs/blob/main/src/js/main.js">exmp</a>:<nfdi-code class="language-js">// main.js
-import {Navbar, Footer} from "@nfdi4plants/web-components";</nfdi-code>
+import {Navbar, Footer} from "@nfdi4plants/web-components";
+</nfdi-code>
 </li>
 <li>Run <code>rollup --config rollup.config.js</code>.</li>
 <li>Reference <code>bundle.js</code> as shown <a href="https://lit.dev/docs/tools/adding-lit/#use-your-component">here</a>.</li>

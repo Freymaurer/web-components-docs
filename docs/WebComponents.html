@@ -100,7 +100,8 @@
 <nfdi-h2 id="style">Style</nfdi-h2>
 <nfdi-h3 id="based-on-bulma">Based on Bulma</nfdi-h3>
 <p>The DataPLANT web components were built with the basic Bulma style sheet in mind. It is highly recommended to reference the Bulma style sheet for all projects which use the DataPLANT web components.</p>
-<nfdi-code class="language-html"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"></nfdi-code>
+<nfdi-code class="language-html">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</nfdi-code>
 <p><em>Or see <a href="https://bulma.io/documentation/overview/start/">here</a> for the official docs.</em></p>
 <nfdi-h3 id="custom-properties-css-variables">Custom Properties -  CSS variables</nfdi-h3>
 <p>Nearly all web components come with the possibility to change the default color scheme by applying custom CSS variables to the html document. Each web component comes with a description of available variables and their default values.
@@ -133,21 +134,25 @@ a:hover {
 
 thead {
     font-size: 1.2rem;
-}</nfdi-code>
+}
+</nfdi-code>
 <nfdi-h2 id="nfdi-navbar">nfdi-navbar</nfdi-h2>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-navbar></nfdi-navbar></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-navbar>&lt;/nfdi-navbar>&lt;/script>
+</nfdi-code>
 <br>
 <p><img src="../images/WebComponents/nfdi-navbar.png?v0.5.2" alt="nfdi-navbar" />
 <em>v0.5.2</em></p>
 <p>Slotless component with responsive design at 1024px media query. Fixed top and requires <code>padding-top: 3.25rem</code> to be added to html.</p>
-<nfdi-code class="language-html"><script type="text/plain"><html style="padding-top: 3.25rem"></html></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;html style="padding-top: 3.25rem">&lt;/html>&lt;/script>
+</nfdi-code>
 <nfdi-h3 id="custom-properties">Custom Properties</nfdi-h3>
 <ul>
 <li><code>--element-background-color</code>, set &quot;background-color&quot; of navbar. (Default: <a href="https://github.com/nfdi4plants/Branding#darkblue">nfdi-darkblue</a>)</li>
 <li><code>--element-text-color</code>, set &quot;color&quot;, &quot;border-color&quot; and &quot;navbar-divider&quot; color. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-white</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-footer">nfdi-footer</nfdi-h2>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-footer></nfdi-footer></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-footer>&lt;/nfdi-footer>&lt;/script>
+</nfdi-code>
 <br>
 <p><img src="../images/WebComponents/nfdi-footer.png?v0.5.2" alt="nfdi-navbar" />
 <em>v0.5.2</em></p>
@@ -161,7 +166,8 @@ thead {
 <li><code>--header-color</code>, set color to html header elements. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-white</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-body">nfdi-body</nfdi-h2>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-body [class="content"] [hassidebar="true"]></nfdi-body></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-body [class="content"] [hassidebar="true"]>&lt;/nfdi-body>&lt;/script>
+</nfdi-code>
 <p>The top level container element for the main documentation design.</p>
 <p><img src="../images/WebComponents/nfdi-body.png?v0.5.2" alt="nfdi-navbar" />
 <em>v0.5.2</em></p>
@@ -176,19 +182,21 @@ thead {
 </ul>
 <nfdi-h3 id="slots">Slots</nfdi-h3>
 <p>Child elements will go to &quot;Main Content Area&quot;</p>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-body class="content" hassidebar="true">
-    <h1 class="front-header">Index</h1>
-    <i class="help">last updated at 2022-06-06</i>
-</nfdi-body></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-body class="content" hassidebar="true">
+    &lt;h1 class="front-header">Index&lt;/h1>
+    &lt;i class="help">last updated at 2022-06-06&lt;/i>
+&lt;/nfdi-body>&lt;/script>
+</nfdi-code>
 <nfdi-h4 id="sidebar-slot"><strong>sidebar-slot</strong></nfdi-h4>
 <p>Use this slot to specify an <a href="#nfdi-sidebar-element">nfdi-sidebar-element</a>.</p>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-body class="content" hassidebar="true">
-    <!-- sidebar slot -->
-    <nfdi-sidebar-element slot="sidebar" isactive="true">
-        <div slot="title">General</div>
-        <h1 slot="inner"><a href="/index.html">Home</a></h1>
-    </nfdi-sidebar-element>
-</nfdi-body></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-body class="content" hassidebar="true">
+    &lt;!-- sidebar slot -->
+    &lt;nfdi-sidebar-element slot="sidebar" isactive="true">
+        &lt;div slot="title">General&lt;/div>
+        &lt;h1 slot="inner">&lt;a href="/index.html">Home&lt;/a>&lt;/h1>
+    &lt;/nfdi-sidebar-element>
+&lt;/nfdi-body>&lt;/script>
+</nfdi-code>
 <nfdi-h3 id="html-attributes">Html Attributes</nfdi-h3>
 <ul>
 <li><code>hasSidebar</code>/<code>hassidebar</code>: set to &quot;true&quot; to display the sidebar. (Default: &quot;false&quot;)</li>
@@ -199,7 +207,8 @@ thead {
 <li><code>--element-text-color</code>, set &quot;color&quot;, &quot;border-color&quot;. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-sidebar-element">nfdi-sidebar-element</nfdi-h2>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-sidebar-element slot="sidebar" [isActive=true]></nfdi-sidebar-element></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-sidebar-element slot="sidebar" [isActive=true]>&lt;/nfdi-sidebar-element>&lt;/script>
+</nfdi-code>
 <br>
 <p>Stackable element in &quot;Sidebar Area&gt; of body. MUST be slotted in &quot;sidebar&quot; slot of <code>nfdi-body</code>.</p>
 <p><strong>Features</strong>:</p>
@@ -212,10 +221,11 @@ thead {
 </li>
 </ul>
 <nfdi-h3 id="slots-1">Slots</nfdi-h3>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-sidebar-element slot="sidebar" isactive="true">
-    <div slot="title">General</div>
-    <h1 slot="inner"><a href="/index.html">Home</a></h1>
-</nfdi-sidebar-element></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-sidebar-element slot="sidebar" isactive="true">
+    &lt;div slot="title">General&lt;/div>
+    &lt;h1 slot="inner">&lt;a href="/index.html">Home&lt;/a>&lt;/h1>
+&lt;/nfdi-sidebar-element>&lt;/script>
+</nfdi-code>
 <nfdi-h4 id="title-slot"><strong>title-slot</strong></nfdi-h4>
 <p>Use this slot to specify the header of one sidebar element block.</p>
 <nfdi-h4 id="inner-slot"><strong>inner-slot</strong></nfdi-h4>
@@ -235,12 +245,13 @@ thead {
 <li><code>--sidebar-background-color</code> set &quot;background-color&quot; of &quot;Sidebar Area&quot;. (Default: transparent)</li>
 </ul>
 <nfdi-h2 id="nfdi-header">nfdi-header</nfdi-h2>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-h1>Metadata</nfdi-h1>
-<nfdi-h2>Metadata 2</nfdi-h2>
-<nfdi-h3>Metadata 3</nfdi-h3>
-<nfdi-h4>Metadata 4</nfdi-h4>
-<nfdi-h5>Metadata 5</nfdi-h5>
-<nfdi-h6>Metadata 6</nfdi-h6></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-h1>Metadata&lt;/nfdi-h1>
+&lt;nfdi-h2>Metadata 2&lt;/nfdi-h2>
+&lt;nfdi-h3>Metadata 3&lt;/nfdi-h3>
+&lt;nfdi-h4>Metadata 4&lt;/nfdi-h4>
+&lt;nfdi-h5>Metadata 5&lt;/nfdi-h5>
+&lt;nfdi-h6>Metadata 6&lt;/nfdi-h6>&lt;/script>
+</nfdi-code>
 <br>
 <p><img src="../images/WebComponents/nfdi-header.png?v0.5.2" alt="nfdi-header" /></p>
 <p><em>v0.5.2</em></p>
@@ -257,7 +268,8 @@ thead {
 <li><code>--header-color</code>: set color to header elements. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-toc">nfdi-toc</nfdi-h2>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-toc></nfdi-toc></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-toc>&lt;/nfdi-toc>&lt;/script>
+</nfdi-code>
 <br>
 <p><img src="../images/WebComponents/nfdi-toc.png?v0.5.2" alt="nfdi-toc" />
 <em>v0.5.2</em></p>
@@ -271,14 +283,16 @@ thead {
 <li>Automatic generation has some major restrictions:
 <ul>
 <li>Only works on elements inside the next lowest nfdi-header level 🐛.</li>
-<li>Example: 'header h2' will be missing.<nfdi-code class="language-html"><script type="text/plain"><nfdi-h2>header h2</nfdi-h2>
-<nfdi-h1>header h1.1</nfdi-h1>
-<nfdi-h1>header h1.1</nfdi-h1></script></nfdi-code>
+<li>Example: 'header h2' will be missing.<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-h2>header h2&lt;/nfdi-h2>
+&lt;nfdi-h1>header h1.1&lt;/nfdi-h1>
+&lt;nfdi-h1>header h1.1&lt;/nfdi-h1>&lt;/script>
+</nfdi-code>
 </li>
-<li>Example: 'header h3' will be missing.<nfdi-code class="language-html"><script type="text/plain"><nfdi-h1>header h1.1</nfdi-h1>
-<nfdi-h2>header h3</nfdi-h2>
-<nfdi-h1>header h1.2</nfdi-h1>
-<nfdi-h2>header h2</nfdi-h2></script></nfdi-code>
+<li>Example: 'header h3' will be missing.<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-h1>header h1.1&lt;/nfdi-h1>
+&lt;nfdi-h2>header h3&lt;/nfdi-h2>
+&lt;nfdi-h1>header h1.2&lt;/nfdi-h1>
+&lt;nfdi-h2>header h2&lt;/nfdi-h2>&lt;/script>
+</nfdi-code>
 </li>
 <li>👀 If you are interested, any help is welcome (<a href="https://github.com/nfdi4plants/web-components/issues/15">here</a>).</li>
 </ul>
@@ -291,13 +305,15 @@ thead {
 <li><code>--element-text-color</code>: set color to list style elements. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-code">nfdi-code</nfdi-h2>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-code></nfdi-code></script></nfdi-code>
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-code>&lt;/nfdi-code>&lt;/script>
+</nfdi-code>
 <p><img src="../images/WebComponents/nfdi-code.png?v0.6.0" alt="nfdi-code" />
 <em>v0.6.0</em></p>
 <p>This component can be used to display code snippets similar to <code>&lt;pre&gt;</code> html elements. Any text inside will be presented exactly as written.</p>
 <p>Add <code>class=&quot;language-*&quot;</code> to the element to specify the language for syntax highlighting.</p>
 <p>👀 If you want to showcase html code, it is recommended to add a <code>&lt;script&gt;</code> tag.</p>
-<nfdi-code class="language-html"><nfdi-code class="language-html"><script type="text/plain"><p>Hi!</p></script></nfdi-code></nfdi-code>
+<nfdi-code class="language-html">&lt;nfdi-code class="language-html">&lt;script type="text/plain">&lt;p>Hi!&lt;/p>&lt;/script>&lt;/nfdi-code>
+</nfdi-code>
 <p><strong>Features</strong></p>
 <ul>
 <li>Comes with copy-to-clipboard button.</li>
@@ -314,8 +330,8 @@ thead {
 </li>
 </ul>
 <nfdi-h3 id="slots-2">Slots</nfdi-h3>
-<nfdi-code class="language-html"><script type="text/plain"><nfdi-body>
-    <nfdi-code class="language-fsharp">#r "nuget: DynamicObj, 1.0.1"
+<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-body>
+    &lt;nfdi-code class="language-fsharp">#r "nuget: DynamicObj, 1.0.1"
 #r "nuget: Expecto, 9.0.4"
 
 open DynamicObj
@@ -330,8 +346,9 @@ type JsonParser = {
     static member create tokenType value = {
         TokenType = tokenType
         Value = value
-    }</nfdi-code>
-</nfdi-body></script></nfdi-code>
+    }&lt;/nfdi-code>
+&lt;/nfdi-body>&lt;/script>
+</nfdi-code>
 <nfdi-h3 id="custom-properties-6">Custom Properties</nfdi-h3>
 <ul>
 <li><code>--accent-text-color</code>: set the colored border on the left. (Default: <a href="https://github.com/nfdi4plants/Branding#lightblue">nfdi-lightblue</a>)</li>

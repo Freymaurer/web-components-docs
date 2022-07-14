@@ -156,7 +156,8 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update @nfdi4plants/web-components & Nfdi4Plants.Fornax ⬆️</nfdi-code>
+          commit_message: Update @nfdi4plants/web-components &amp; Nfdi4Plants.Fornax ⬆️
+</nfdi-code>
 <p>This specific example will update <code>@nfdi4plants/web-components</code> via npm and rollup <strong>and</strong> <code>Nfdi4Plants.Fornax</code> via paket. Should you use another GitHub action to deploy for example to gh-pages. You can add the following trigger event to trigger the deploy event after updating:</p>
 <nfdi-code class="language-yml"># Controls when the workflow will run
 on:
@@ -166,7 +167,8 @@ on:
   # triggers when "update-dependencies" is completed
   workflow_run:
     workflows: [ update-dependencies ]
-    types: [ completed ]</nfdi-code>
+    types: [ completed ]
+</nfdi-code>
 
       <h3>
         Dataplant Support

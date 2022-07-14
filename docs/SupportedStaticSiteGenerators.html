@@ -104,7 +104,8 @@ source https://api.nuget.org/v3/index.json
 
 storage: none
 framework: net5.0, netstandard2.0, netstandard2.1
-nuget Nfdi4Plants.Fornax</nfdi-code>
+nuget Nfdi4Plants.Fornax
+</nfdi-code>
 </li>
 <li><code>dotnet paket install</code></li>
 <li>Follow instructions for rollup setup <a href="/web-components-docs/docs/Installation.html#extensive-explanation-for-rollup-setup">here</a>.</li>
@@ -129,7 +130,8 @@ add sidebar: sidebars\mainSidebar.md
 Article Status: Publishable
 To-Dos: 
     - Update links to other KB articles
----</nfdi-code>
+---
+</nfdi-code>
 <ul>
 <li>All keys (<code>layout</code>, <code>author</code>, etc.) are <strong>not</strong> case sensitive.</li>
 <li>All fields can be at ANY position.</li>
@@ -159,14 +161,16 @@ To-Dos:
 <p>Sidebar files MUST be in ANY <strong>subdirectory</strong> of <code>\src\docs</code>, which is excempted from docs layout parsing ``.</p>
 <nfdi-code class="language-fsharp">let files = 
     Directory.GetFiles(docsPath, "*")
-    |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not && n.Contains "/_sidebars/" |> not)</nfdi-code>
+    |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not &amp;&amp; n.Contains "/_sidebars/" |> not)
+</nfdi-code>
 <p>Sidebar markdown files must start with a metadata block:</p>
 <nfdi-code class="language-yml">---
 published: 2022-05-09
 Article Status: Publishable
 To-Dos: 
     - Update links to other KB articles
----</nfdi-code>
+---
+</nfdi-code>
 <ul>
 <li>MAY contain <strong>any</strong> other metadata. The information will be read but will not affect the generated html.</li>
 </ul>
