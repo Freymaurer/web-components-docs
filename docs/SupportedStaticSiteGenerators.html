@@ -89,10 +89,11 @@
         last updated at 2022-06-27
       </i>
       <nfdi-toc></nfdi-toc>
-      <nfdi-h2 id="fornax">Fornax</nfdi-h2>
+      <nfdi-h1 id="fornax">Fornax</nfdi-h1>
 <p>These docs are created using this setup, so you can always have a look at the <a href="https://github.com/nfdi4plants/web-components-docs">source repo</a> if you find something missing.</p>
 <p>You can use prebuilt loader functions and html components  from <a href="https://github.com/Freymaurer/Nfdi4Plants.Fornax">Nfdi4Plants.Fornax</a> to create gh-pages for <strong>documentation</strong>.</p>
-<nfdi-h3 id="setup">Setup</nfdi-h3>
+<p><em>Docs for version: 0.6.0</em></p>
+<nfdi-h2 id="setup">Setup</nfdi-h2>
 <ol>
 <li><code>dotnet new tool-manifest</code></li>
 <li><code>dotnet tool install fornax</code></li>
@@ -117,7 +118,7 @@ nuget Nfdi4Plants.Fornax
 <li>Set up gh-pages.</li>
 <li>Set up <a href="/web-components-docs/docs/ScheduledUpdates.html">scheduled updates</a> (Optional, recommended).</li>
 </ol>
-<nfdi-h3 id="markdown-syntax">Markdown syntax</nfdi-h3>
+<nfdi-h2 id="markdown-syntax">Markdown syntax</nfdi-h2>
 <p>To add more documentation, add a markdown file to <code>\src\docs</code>. The file MUST start with a metadata block:</p>
 <!--used yml here as code language for nice color syntax-->
 <nfdi-code class="language-yml">---
@@ -133,9 +134,9 @@ To-Dos:
 ---
 </nfdi-code>
 <ul>
-<li>All keys (<code>layout</code>, <code>author</code>, etc.) are <strong>not</strong> case sensitive.</li>
-<li>All fields can be at ANY position.</li>
 <li>MUST start and end with <code>---</code> .</li>
+<li>Keys (<code>layout</code>, <code>author</code>, etc.) are NOT case sensitive.</li>
+<li>Fields MAY be in any order.</li>
 <li>MUST contain <code>layout: docs</code>.
 <ul>
 <li>This triggers fornax parsing to html.</li>
@@ -147,19 +148,53 @@ To-Dos:
 <li>Will be used to name the generated webpage.</li>
 </ul>
 </li>
-<li>MUST contain <code>published: yyyy-MM-dd</code>.</li>
-<li>MAY contain <code>Author: xxxx</code>.</li>
-<li>MAY contain <code>add toc: true</code>.
+<li>IF duplicates of a field, without duplicate support, exist the first one is used.</li>
+<li>MUST contain <a href="#datepublished">date: yyyy-MM-dd</a>.</li>
+<li>MAY contain <a href="#author">Author: xxxx</a>.</li>
+<li>MAY contain <code>add toc: false</code>.
 <ul>
-<li>Will add automated table of contents from all found headers in content.</li>
+<li>If true, adds automated table of contents from all found headers in content.</li>
+<li>Default is <code>true</code>.</li>
+</ul>
+</li>
+<li>MAY contain <code>add support: false</code>.
+<ul>
+<li>If true adds DataPlant support component at the bottom.</li>
+<li>Default is <code>true</code>.</li>
 </ul>
 </li>
 <li>MAY contain <code>add sidebar: realtive\path\to\sidebar.md</code> to add the sidebar element to the page.</li>
-<li>MAY contain <strong>any</strong> other metadata. The information will be read but will not affect the generated html.</li>
+<li>MAY contain any other metadata. The information will be read but will not affect the generated html.</li>
 </ul>
-<nfdi-h4 id="sidebar">Sidebar</nfdi-h4>
-<p>Sidebar files MUST be in ANY <strong>subdirectory</strong> of <code>\src\docs</code>, which is excempted from docs layout parsing ``.</p>
-<nfdi-code class="language-fsharp">let files = 
+<nfdi-h3 id="author">Author</nfdi-h3>
+<p>Examples:</p>
+<nfdi-code class="language-yml"># Allows duplicates, all "author" fields are parsed
+author: Dominik
+author: Martin
+</nfdi-code>
+<nfdi-code class="language-yml"># Allows json object syntax
+# "name" MUST exist
+# "github" and "orcid" MAY exist
+author: {name: Dominik}
+author: {name: Martin D'vloper, github: https://github.com/exampleUrl, orcid: 0000-0000-0000-0000}
+</nfdi-code>
+<nfdi-h3 id="datepublished">Date/Published</nfdi-h3>
+<p>Format is <code>date: yyyy-MM-dd</code>.</p>
+<p>Examples:</p>
+<nfdi-code class="language-yml"># Can use "date" ...
+date: 2020-05-09
+</nfdi-code>
+<nfdi-code class="language-yml"># ... or "published"
+published: 2020-05-09
+</nfdi-code>
+<nfdi-code class="language-yml"># If both exist, "date" is preferred even if it comes after "published".
+published: 2020-05-09 # This is ignored
+date: 2020-10-09
+</nfdi-code>
+<nfdi-h2 id="sidebar">Sidebar</nfdi-h2>
+<p>Sidebar files MUST be in ANY <strong>subdirectory</strong> of <code>\src\docs</code>, which is excempted from docs layout parsing.</p>
+<nfdi-code class="language-fsharp">// example for folder excemption
+let files = 
     Directory.GetFiles(docsPath, "*")
     |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not &amp;&amp; n.Contains "/_sidebars/" |> not)
 </nfdi-code>
@@ -182,7 +217,7 @@ To-Dos:
 # DataPLANT's Data Management Plan Generator:/docs/DataManagementPlan.html#dataplants-data-management-plan-generator
 ```</code></pre>
 <ul>
-<li>All text after the opening &quot;```&quot; will be parsed to the element title.</li>
+<li>All text after the opening <code>```</code> will be parsed to the element title.</li>
 <li>Inner text MUST only contain heading lines.
 <ul>
 <li>Only headers up to <code>###</code> are parsed. All header with more depth are parsed to <code>###</code>.</li>
