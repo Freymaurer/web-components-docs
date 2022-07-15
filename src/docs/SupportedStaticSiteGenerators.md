@@ -7,13 +7,15 @@ add toc: true
 add sidebar: _sidebars\mainSidebar.md
 ---
 
-## Fornax
+# Fornax
 
 These docs are created using this setup, so you can always have a look at the [source repo](https://github.com/nfdi4plants/web-components-docs) if you find something missing.
 
 You can use prebuilt loader functions and html components  from [Nfdi4Plants.Fornax](https://github.com/Freymaurer/Nfdi4Plants.Fornax) to create gh-pages for **documentation**.
 
-### Setup
+*Docs for version: 0.6.0*
+
+## Setup
 
 1. `dotnet new tool-manifest`
 2. `dotnet tool install fornax`
@@ -39,7 +41,7 @@ You can use prebuilt loader functions and html components  from [Nfdi4Plants.For
 14. Set up gh-pages.
 15. Set up [scheduled updates](/web-components-docs/docs/ScheduledUpdates.html) (Optional, recommended).
 
-### Markdown syntax
+## Markdown syntax
 
 To add more documentation, add a markdown file to `\src\docs`. The file MUST start with a metadata block:
 
@@ -58,26 +60,72 @@ To-Dos:
 ---
 ```
 
-- All keys (`layout`, `author`, etc.) are **not** case sensitive.
-- All fields can be at ANY position.
 - MUST start and end with `---` .
+- Keys (`layout`, `author`, etc.) are NOT case sensitive.
+- Fields MAY be in any order.
 - MUST contain `layout: docs`.
     - This triggers fornax parsing to html.
 - MUST contain `title: xxxx`.
     - Will be added as "# xxxx" to the html.
     - Will be used to name the generated webpage.
-- MUST contain `published: yyyy-MM-dd`.
-- MAY contain `Author: xxxx`.
-- MAY contain `add toc: true`.
-    - Will add automated table of contents from all found headers in content.
+- IF duplicates of a field, without duplicate support, exist the first one is used.
+- MUST contain [date: yyyy-MM-dd](#datepublished).
+- MAY contain [Author: xxxx](#author).
+- MAY contain `add toc: false`.
+    - If true, adds automated table of contents from all found headers in content.
+    - Default is `true`.
+- MAY contain `add support: false`.
+    - If true adds DataPlant support component at the bottom.
+    - Default is `true`.
 - MAY contain `add sidebar: realtive\path\to\sidebar.md` to add the sidebar element to the page.
-- MAY contain **any** other metadata. The information will be read but will not affect the generated html.
+- MAY contain any other metadata. The information will be read but will not affect the generated html.
 
-#### Sidebar
+### Author
 
-Sidebar files MUST be in ANY **subdirectory** of `\src\docs`, which is excempted from docs layout parsing ``. 
+Examples:
+
+```yml
+# Allows duplicates, all "author" fields are parsed
+author: Dominik
+author: Martin
+```
+
+```yml
+# Allows json object syntax
+# "name" MUST exist
+# "github" and "orcid" MAY exist
+author: {name: Dominik}
+author: {name: Martin D'vloper, github: https://github.com/exampleUrl, orcid: 0000-0000-0000-0000}
+```
+  
+### Date/Published
+
+Format is `date: yyyy-MM-dd`.
+
+Examples:
+
+```yml
+# Can use "date" ...
+date: 2020-05-09
+```
+
+```yml
+# ... or "published"
+published: 2020-05-09
+```
+
+```yml
+# If both exist, "date" is preferred even if it comes after "published".
+published: 2020-05-09 # This is ignored
+date: 2020-10-09
+```
+
+## Sidebar
+
+Sidebar files MUST be in ANY **subdirectory** of `\src\docs`, which is excempted from docs layout parsing. 
 
 ```fsharp
+// example for folder excemption
 let files = 
     Directory.GetFiles(docsPath, "*")
     |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not && n.Contains "/_sidebars/" |> not)
@@ -105,6 +153,6 @@ To add a sidebar element to the page, use the codeblock syntax:
 # DataPLANT's Data Management Plan Generator:/docs/DataManagementPlan.html#dataplants-data-management-plan-generator
 ```</code></pre>
 
-- All text after the opening "```" will be parsed to the element title.
+- All text after the opening <code>```</code> will be parsed to the element title.
 - Inner text MUST only contain heading lines.
     - Only headers up to `###` are parsed. All header with more depth are parsed to `###`.
