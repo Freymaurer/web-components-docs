@@ -11,35 +11,17 @@ add sidebar: _sidebars\mainSidebar.md
 
 These docs are created using this setup, so you can always have a look at the [source repo](https://github.com/nfdi4plants/web-components-docs) if you find something missing.
 
-You can use prebuilt loader functions and html components  from [Nfdi4Plants.Fornax](https://github.com/Freymaurer/Nfdi4Plants.Fornax) to create gh-pages for **documentation**.
-
-*Docs for version: 0.6.0*
+*Docs for version: ^0.7.0*
 
 ## Setup
 
-1. `dotnet new tool-manifest`
-2. `dotnet tool install fornax`
-3. `dotnet tool install paket`
-4. `dotnet fornax new`
-5. `dotnet paket init`
-6. Replace content of `paket.dependencies` with the following:
-    ```
-    generate_load_scripts: true
-    source https://api.nuget.org/v3/index.json
-
-    storage: none
-    framework: net5.0, netstandard2.0, netstandard2.1
-    nuget Nfdi4Plants.Fornax
-    ```
-7. `dotnet paket install`
-8. Follow instructions for rollup setup [here](/web-components-docs/docs/Installation.html#extensive-explanation-for-rollup-setup).
-9. Create `src/loaders/docsloader.fsx` as seen [here](https://github.com/nfdi4plants/web-components-docs/blob/main/src/loaders/docsloader.fsx).
-10. Create `src/generators/docs.fsx` as seen [here](https://github.com/nfdi4plants/web-components-docs/blob/main/src/generators/docs.fsx).
-11. Adjust `src/generators/layout.fsx` and `src/generators/index.fsx` accordingly.
-12. Add docs parsing to `src/config.fsx`.
-13. Test with `dotnet fornax watch` in `src` folder.
-14. Set up gh-pages.
-15. Set up [scheduled updates](/web-components-docs/docs/ScheduledUpdates.html) (Optional, recommended).
+1. `dotnet new --install Nfdi4Plants.Fornax.Template`, to install the current version of the template.
+2. `dotnet new nfdidocs`, after navigating to the folder in which you want to initiate the template.
+3. `dotnet tool restore`
+4. `dotnet paket install`
+5. Navigate to the `src` folder and start the application with `dotnet fornax watch`
+6. Set up gh-pages.
+7. (Optional, recommended) Set up [scheduled updates](/web-components-docs/docs/ScheduledUpdates.html).
 
 ## Markdown syntax
 
