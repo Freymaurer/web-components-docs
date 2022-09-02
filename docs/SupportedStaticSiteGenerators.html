@@ -91,32 +91,16 @@
       <nfdi-toc></nfdi-toc>
       <nfdi-h1 id="fornax">Fornax</nfdi-h1>
 <p>These docs are created using this setup, so you can always have a look at the <a href="https://github.com/nfdi4plants/web-components-docs">source repo</a> if you find something missing.</p>
-<p>You can use prebuilt loader functions and html components  from <a href="https://github.com/Freymaurer/Nfdi4Plants.Fornax">Nfdi4Plants.Fornax</a> to create gh-pages for <strong>documentation</strong>.</p>
-<p><em>Docs for version: 0.6.0</em></p>
+<p><em>Docs for version: ^0.7.0</em></p>
 <nfdi-h2 id="setup">Setup</nfdi-h2>
 <ol>
-<li><code>dotnet new tool-manifest</code></li>
-<li><code>dotnet tool install fornax</code></li>
-<li><code>dotnet tool install paket</code></li>
-<li><code>dotnet fornax new</code></li>
-<li><code>dotnet paket init</code></li>
-<li>Replace content of <code>paket.dependencies</code> with the following:<nfdi-code>generate_load_scripts: true
-source https://api.nuget.org/v3/index.json
-
-storage: none
-framework: net5.0, netstandard2.0, netstandard2.1
-nuget Nfdi4Plants.Fornax
-</nfdi-code>
-</li>
+<li><code>dotnet new --install Nfdi4Plants.Fornax.Template</code>, to install the current version of the template.</li>
+<li><code>dotnet new nfdidocs</code>, after navigating to the folder in which you want to initiate the template.</li>
+<li><code>dotnet tool restore</code></li>
 <li><code>dotnet paket install</code></li>
-<li>Follow instructions for rollup setup <a href="/web-components-docs/docs/Installation.html#extensive-explanation-for-rollup-setup">here</a>.</li>
-<li>Create <code>src/loaders/docsloader.fsx</code> as seen <a href="https://github.com/nfdi4plants/web-components-docs/blob/main/src/loaders/docsloader.fsx">here</a>.</li>
-<li>Create <code>src/generators/docs.fsx</code> as seen <a href="https://github.com/nfdi4plants/web-components-docs/blob/main/src/generators/docs.fsx">here</a>.</li>
-<li>Adjust <code>src/generators/layout.fsx</code> and <code>src/generators/index.fsx</code> accordingly.</li>
-<li>Add docs parsing to <code>src/config.fsx</code>.</li>
-<li>Test with <code>dotnet fornax watch</code> in <code>src</code> folder.</li>
+<li>Navigate to the <code>src</code> folder and start the application with <code>dotnet fornax watch</code></li>
 <li>Set up gh-pages.</li>
-<li>Set up <a href="/web-components-docs/docs/ScheduledUpdates.html">scheduled updates</a> (Optional, recommended).</li>
+<li>(Optional, recommended) Set up <a href="/web-components-docs/docs/ScheduledUpdates.html">scheduled updates</a>.</li>
 </ol>
 <nfdi-h2 id="markdown-syntax">Markdown syntax</nfdi-h2>
 <p>To add more documentation, add a markdown file to <code>\src\docs</code>. The file MUST start with a metadata block:</p>
