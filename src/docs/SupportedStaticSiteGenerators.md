@@ -19,7 +19,7 @@ These docs are created using this setup, so you can always have a look at the [s
 2. `dotnet new nfdidocs`, after navigating to the folder in which you want to initiate the template.
 3. `dotnet tool restore`
 4. `dotnet paket install`
-5. Navigate to the `src` folder and start the application with `dotnet fornax watch`
+5. Navigate to the `src` folder (`cd src`) and start the application with `dotnet fornax watch`
 6. Set up gh-pages.
 7. (Optional, recommended) Set up [scheduled updates](/web-components-docs/docs/ScheduledUpdates.html).
 
