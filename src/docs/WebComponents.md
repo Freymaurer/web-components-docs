@@ -72,8 +72,8 @@ thead {
 
 <br>
 
-![nfdi-navbar](../images/WebComponents/nfdi-navbar.png?v0.5.2)
-*v0.5.2*
+![nfdi-navbar](../images/WebComponents/nfdi-navbar.png?v0.8.0)
+*v0.8.0*
 
 Slotless component with responsive design at 1024px media query. Fixed top and requires `padding-top: 3.25rem` to be added to html.
 
@@ -94,8 +94,8 @@ Slotless component with responsive design at 1024px media query. Fixed top and r
 
 <br>
 
-![nfdi-navbar](../images/WebComponents/nfdi-footer.png?v0.5.2)
-*v0.5.2* 
+![nfdi-navbar](../images/WebComponents/nfdi-footer.png?v0.8.0)
+*v0.8.0* 
 
 Slotless component.
 
