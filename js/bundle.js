@@ -10826,6 +10826,9 @@ body {
             <a class=${"${mainPageBaseUrl}content/jobs.html"==this.url?"navbar-item is-active smooth-hover":"navbar-item"} href="${we}content/jobs.html">
               Jobs
             </a>
+            <a class=${"https://dmpg.nfdi4plants.org"==this.url?"navbar-item is-active smooth-hover":"navbar-item"} href="${"https://dmpg.nfdi4plants.org"}">
+              DataPLAN
+            </a>
             <a class=${this.url==ye?"navbar-item is-active smooth-hover":"navbar-item"} href="${ye}">
               DataHUB
             </a>
@@ -10959,6 +10962,13 @@ body {
                         <li>
                             <a href="${we}content/jobs.html">
                             Jobs
+                            </a>
+                        </li>
+                        </div>
+                        <div class="block">
+                        <li>
+                            <a href="${"https://dmpg.nfdi4plants.org"}">
+                            DataPLAN
                             </a>
                         </li>
                         </div>
