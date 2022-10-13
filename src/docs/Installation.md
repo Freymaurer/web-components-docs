@@ -44,7 +44,7 @@ For projects without bundling, you can use  [rollup](https://rollupjs.org/guide/
     // main.js
     import {Navbar, Footer} from "@nfdi4plants/web-components";
     ```
-5. Run `rollup --config rollup.config.js`.
+5. Run `rollup --config rollup.config.js --bundleConfigAsCjs` (*Tested with rollup 3.1.0*).
 6. Reference `bundle.js` as shown [here](https://lit.dev/docs/tools/adding-lit/#use-your-component).
 
 ### Examples
