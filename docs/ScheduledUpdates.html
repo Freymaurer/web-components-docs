@@ -128,14 +128,14 @@ jobs:
           dotnet-version: 5.0.102
 
       # Install node + npm
-      - name: Setup node
-        uses: actions/setup-node@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.4.0
         with:
-          node-version: '12'
+          node-version: 16
 
       # Install rollup for bundling (needs setup described in "installation")
       - name: Install rollup
-        run: npm install --global rollup
+        run: npm install --global rollup@3.1.0
 
       # Update @nfdi4plants/web-components
       - name: Update to latest nfdi4plants web components
@@ -143,7 +143,7 @@ jobs:
 
       # Bundle web components with rollup
       - name: Bundle npm packages
-        run: rollup --config rollup.config.js
+        run: rollup --config rollup.config.js --bundleConfigAsCjs
           
       # This Part is Fornax specific and installs paket
       - name: Restore dotnet tools
