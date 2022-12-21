@@ -16,7 +16,7 @@ These docs are created using this setup, so you can always have a look at the [s
 ## Setup
 
 1. `dotnet new --install Nfdi4Plants.Fornax.Template`, to install the current version of the template.
-2. `dotnet new nfdidocs`, after navigating to the folder in which you want to initiate the template.
+2. `dotnet new NFDIdocs`, after navigating to the folder in which you want to initiate the template.
 3. `dotnet tool restore`
 4. `dotnet paket install`
 5. Navigate to the `src` folder (`cd src`) and start the application with `dotnet fornax watch`
