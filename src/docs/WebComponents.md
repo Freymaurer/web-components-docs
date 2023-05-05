@@ -298,6 +298,7 @@ Add `class="language-*"` to the element to specify the language for syntax highl
     - `bash`
     - `markdown`
     - `python`
+- Supports [mermaid graphs](https://github.com/mermaid-js/mermaid#examples) (>v0.12.0)
 
 ### Slots
 
