@@ -3,7 +3,7 @@
     <meta charSet="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>
-      DataPLANT documentation - List of projects using nfdi4plants/web-components
+      DataPLANT documentation - Common Errors
     </title>
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -84,20 +84,23 @@
 
       </nfdi-sidebar-element>
       <h1 class="front-header">
-        List of projects using nfdi4plants/web-components
+        Common Errors
       </h1>
       <i class="help">
-        last updated at 2022-06-06
+        last updated at 2023-05-08
       </i>
       <nfdi-toc></nfdi-toc>
-      <p>Here you can find a list of repositories/projects using the <em>nfdi4plants/web-components</em></p>
-<ul>
-<li><a href="https://github.com/nfdi4plants/nfdi4plants.github.io">nfdi-homepage</a></li>
-<li><a href="https://github.com/nfdi4plants/nfdi4plants.knowledgebase">nfdi-knowledgebase</a></li>
-<li><a href="https://github.com/Freymaurer/nfdi-helpdesk">nfdi-helpdesk</a></li>
-<li>dataplant-registration-frontend, found at bwcloud Gitlab Freiburg</li>
-<li>keycloak theme for gitlab login, found at bwcloud Gitlab Freiburg</li>
-</ul>
+      <nfdi-h2 id="update-to-0.13.0-rolluperror">Update to &gt;0.13.0 (RollupError)</nfdi-h2>
+<blockquote>
+<p>[!] RollupError: Invalid value for option &quot;output.file&quot; - when building multiple chunks, the &quot;output.dir&quot; option must be used, not &quot;output.file&quot;. To inline dynamic imports, set the &quot;inlineDynamicImports&quot; option.</p>
+</blockquote>
+<p>This error was introduced due to a new mermaidjs dependency beginning in v0.13.0. to solve it, you can adjust the <code>rollup.config.js</code> with <code>inlineDynamicImports: true</code>.</p>
+<nfdi-code class="language-js">output: {
+    file: 'src/js/bundle.js',
+    format: 'cjs',
+    inlineDynamicImports: true
+  },
+</nfdi-code>
 
       <h3>
         DataPLANT Support
@@ -116,7 +119,7 @@
         </span>
       </div>
       <div>
-        <a target="_blank" href="https://github.com/nfdi4plants/web-components-docs/blob/main/src/docs/ProjectList.md" style="margin-left: auto; display: block; width: 130px;">
+        <a target="_blank" href="https://github.com/nfdi4plants/web-components-docs/blob/main/src/docs/CommonErrors.md" style="margin-left: auto; display: block; width: 130px;">
           ✏️ Edit this page
         </a>
       </div>
