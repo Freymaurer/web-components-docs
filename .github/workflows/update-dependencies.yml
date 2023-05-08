@@ -46,7 +46,7 @@ jobs:
         run: npm install @nfdi4plants/web-components@latest
 
       - name: Bundle npm packages
-        run: rollup --config rollup.config.js --bundleConfigAsCjs
+        run: npm run bundle
           
       - name: Restore dotnet tools
         run: dotnet tool restore

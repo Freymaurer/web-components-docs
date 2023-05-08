@@ -12,6 +12,7 @@ To-Dos:
 # List of Projects:/docs/ProjectList.html
 # Supported Static Site Generators:/docs/SupportedStaticSiteGenerators.html
 ## Fornax:/docs/SupportedStaticSiteGenerators.html#fornax
+# Common Erros:/docs/CommonErrors.html
 ```
 
 ```Web Components

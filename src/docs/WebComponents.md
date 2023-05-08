@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Web Components
-published: 2022-06-27
+published: 2023-05-08
 Author: Kevin Frey
 add toc: false
 add sidebar: _sidebars\mainSidebar.md
@@ -277,6 +277,15 @@ Slotless component to automatically create table of contents.
 
 ![nfdi-code](../images/WebComponents/nfdi-code.png?v0.6.0)
 *v0.6.0*
+
+Example Mermaid Graph (>0.13.0)
+
+```mermaid
+pie title What Voldemort doesn't have?
+         "FRIENDS" : 2
+         "FAMILY" : 3
+         "NOSE" : 45
+```
 
 This component can be used to display code snippets similar to `<pre>` html elements. Any text inside will be presented exactly as written.
 
