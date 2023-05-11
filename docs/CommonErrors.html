@@ -90,11 +90,11 @@
         last updated at 2023-05-08
       </i>
       <nfdi-toc></nfdi-toc>
-      <nfdi-h2 id="update-to-0.13.0-rolluperror">Update to &gt;0.13.0 (RollupError)</nfdi-h2>
+      <nfdi-h2 id="update-to-0.12.0-rolluperror">Update to &gt;0.12.0 (RollupError)</nfdi-h2>
 <blockquote>
 <p>[!] RollupError: Invalid value for option &quot;output.file&quot; - when building multiple chunks, the &quot;output.dir&quot; option must be used, not &quot;output.file&quot;. To inline dynamic imports, set the &quot;inlineDynamicImports&quot; option.</p>
 </blockquote>
-<p>This error was introduced due to a new mermaidjs dependency beginning in v0.13.0. to solve it, you can adjust the <code>rollup.config.js</code> with <code>inlineDynamicImports: true</code>.</p>
+<p>This error was introduced due to a new mermaidjs dependency beginning in v0.12.0. to solve it, you can adjust the <code>rollup.config.js</code> with <code>inlineDynamicImports: true</code>.</p>
 <nfdi-code class="language-js">output: {
     file: 'src/js/bundle.js',
     format: 'cjs',
