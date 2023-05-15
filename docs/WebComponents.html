@@ -71,6 +71,7 @@
 <h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-footer">nfdi-footer</h2>
 <h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-body">nfdi-body</h2>
 <h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-element">nfdi-sidebar-element</h2>
+<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-eleneo">nfdi-sidebar-eleneo</h2>
 <h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-header">nfdi-header</h2>
 <h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-toc">nfdi-toc</h2>
 <h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-code">nfdi-code</h2>
@@ -87,13 +88,14 @@
         Web Components
       </h1>
       <i class="help">
-        last updated at 2023-05-08
+        last updated at 2023-05-15
       </i>
       <ul>
 <li><a href="#nfdi-navbar">&lt;nfdi-navbar&gt;</a></li>
 <li><a href="#nfdi-footer">&lt;nfdi-footer&gt;</a></li>
 <li><a href="#nfdi-body">&lt;nfdi-body&gt;</a></li>
 <li><a href="#nfdi-sidebar-element">&lt;nfdi-sidebar-element&gt;</a></li>
+<li><a href="#nfdi-sidebar-eleneo">&lt;nfdi-sidebar-eleneo&gt;</a></li>
 <li><a href="#nfdi-header">&lt;nfdi-header&gt;</a></li>
 <li><a href="#nfdi-toc">&lt;nfdi-toc&gt;</a></li>
 <li><a href="#nfdi-code">&lt;nfdi-code&gt;</a></li>
@@ -170,7 +172,7 @@ thead {
 <nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-body [class="content"] [hassidebar="true"]>&lt;/nfdi-body>&lt;/script>
 </nfdi-code>
 <p>The top level container element for the main documentation design.</p>
-<p><img src="../images/WebComponents/nfdi-body.png?v0.5.2" alt="nfdi-navbar" />
+<p><img src="../images/WebComponents/nfdi-body.png?v0.5.2" alt="nfdi-body" />
 <em>v0.5.2</em></p>
 <p>This element will contain all documentation content in its &quot;Main Content Area&quot;. To style it's children in this area, use the bulma class <code>class=&quot;content&quot;</code>.</p>
 <p><strong>Features</strong></p>
@@ -183,20 +185,46 @@ thead {
 </ul>
 <nfdi-h3 id="slots">Slots</nfdi-h3>
 <p>Child elements will go to &quot;Main Content Area&quot;</p>
-<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-body class="content" hassidebar="true">
+<nfdi-code class="language-html">&lt;nfdi-body class="content" hassidebar="true">
     &lt;h1 class="front-header">Index&lt;/h1>
     &lt;i class="help">last updated at 2022-06-06&lt;/i>
-&lt;/nfdi-body>&lt;/script>
+&lt;/nfdi-body>
 </nfdi-code>
 <nfdi-h4 id="sidebar-slot"><strong>sidebar-slot</strong></nfdi-h4>
 <p>Use this slot to specify an <a href="#nfdi-sidebar-element">nfdi-sidebar-element</a>.</p>
-<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-body class="content" hassidebar="true">
+<nfdi-code class="language-html">&lt;nfdi-body class="content" hassidebar="true">
+    &lt;!-- searchbar slot, pagefind example -->
+    &lt;div slot="searchbar"> 
+        &lt;link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+        &lt;script src="/_pagefind/pagefind-ui.js" type="text/javascript">&lt;/script>
+        &lt;div id="search">&lt;/div>
+        &lt;script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({ element: "#search" });
+            });
+        &lt;/script>
+    &lt;/div>
     &lt;!-- sidebar slot -->
     &lt;nfdi-sidebar-element slot="sidebar" isactive="true">
         &lt;div slot="title">General&lt;/div>
         &lt;h1 slot="inner">&lt;a href="/index.html">Home&lt;/a>&lt;/h1>
     &lt;/nfdi-sidebar-element>
-&lt;/nfdi-body>&lt;/script>
+&lt;/nfdi-body>
+</nfdi-code>
+<nfdi-h4 id="searchbar-slot"><strong>searchbar-slot</strong></nfdi-h4>
+<p>Use this slot to set an element above all sidebar links.</p>
+<nfdi-code class="language-html">&lt;nfdi-body class="content" hassidebar="true">
+    &lt;!-- searchbar slot, pagefind example -->
+    &lt;div slot="searchbar"> 
+        &lt;link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+        &lt;script src="/_pagefind/pagefind-ui.js" type="text/javascript">&lt;/script>
+        &lt;div id="search">&lt;/div>
+        &lt;script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({ element: "#search" });
+            });
+        &lt;/script>
+    &lt;/div>
 </nfdi-code>
 <nfdi-h3 id="html-attributes">Html Attributes</nfdi-h3>
 <ul>
@@ -221,19 +249,50 @@ thead {
 </ul>
 </li>
 </ul>
-<nfdi-h3 id="slots-1">Slots</nfdi-h3>
-<nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-sidebar-element slot="sidebar" isactive="true">
-    &lt;div slot="title">General&lt;/div>
-    &lt;h1 slot="inner">&lt;a href="/index.html">Home&lt;/a>&lt;/h1>
-&lt;/nfdi-sidebar-element>&lt;/script>
+<nfdi-h2 id="nfdi-sidebar-eleneo">nfdi-sidebar-eleneo</nfdi-h2>
+<nfdi-code class="language-html">&lt;nfdi-sidebar-eleneo slot="sidebar">
+    &lt;a href="/">Theory&lt;/a>
+    &lt;a href="/#" slot="child">Metadata&lt;/a>
+    &lt;a href="/#what-is-metadata-amp-more" slot="child">What is metadata?&lt;/a>
+    &lt;a href="/#where-does-metadata-come-from" slot="child">Where does metadata come from?&lt;/a>
+    &lt;a href="/#why-do-i-benefit-from-metadata" slot="child">Why do I benefit from metadata?&lt;/a>
+    &lt;nfdi-sidebar-eleneo slot="child">
+        &lt;a href="/#what-tasks-are-important-for-rich-metadata">What tasks are important for rich metadata?&lt;/a>
+        &lt;a href="/#collection" slot="child">Collection&lt;/a>
+        &lt;a href="/#structuring" slot="child">Structuring&lt;/a>
+        &lt;a href="/#sharing-and-curation" slot="child">Sharing and curation&lt;/a>
+    &lt;/nfdi-sidebar-eleneo>
+&lt;/nfdi-sidebar-eleneo>
 </nfdi-code>
-<nfdi-h4 id="title-slot"><strong>title-slot</strong></nfdi-h4>
-<p>Use this slot to specify the header of one sidebar element block.</p>
-<nfdi-h4 id="inner-slot"><strong>inner-slot</strong></nfdi-h4>
-<p>Use this slot with any of [<code>h1</code>, <code>h2</code>, <code>h3</code>]. to create sidebar links.</p>
+<br>
+<p>Stackable element in &quot;Sidebar Area&quot; of body. MUST be slotted in &quot;sidebar&quot; slot of <code>nfdi-body</code>.</p>
+<p><img src="../images/WebComponents/nfdi-sidebar-eleneo.png?v1.0.0" alt="nfdi-navbar" />
+<em>v1.0.0</em></p>
+<p><strong>Features</strong>:</p>
 <ul>
-<li>MAY contain <code>href</code> attribute.</li>
-<li>Will be checked for matching path to window location and in-page links.</li>
+<li>Can be opened or closed on click.</li>
+<li>Automatically highlights active pages (host + path).</li>
+<li>Can be nested to increase nesting depth.</li>
+</ul>
+<nfdi-h3 id="slots-1">Slots</nfdi-h3>
+<nfdi-code class="language-html">&lt;nfdi-sidebar-eleneo slot="child">
+    &lt;a href="/#what-tasks-are-important-for-rich-metadata">What tasks are important for rich metadata?&lt;/a>
+    &lt;a href="/#collection" slot="child">Collection&lt;/a>
+    &lt;a href="/#structuring" slot="child">Structuring&lt;/a>
+    &lt;a href="/#sharing-and-curation" slot="child">Sharing and curation&lt;/a>
+&lt;/nfdi-sidebar-eleneo>
+</nfdi-code>
+<nfdi-h4 id="main"><strong>main</strong></nfdi-h4>
+<p>Use this slot for the main link.</p>
+<ul>
+<li>MUST be <code>&lt;a&gt;</code> tag. MUST contain <code>href</code> attribute.</li>
+<li>Will be checked for mathing path to windowlocation to automatically open active subpages.</li>
+</ul>
+<nfdi-h4 id="child-slot"><strong>child-slot</strong></nfdi-h4>
+<p>Use this slot to create a toggable sub-container which contains child links.</p>
+<ul>
+<li>MUST be <code>&lt;a&gt;</code> or <code>&lt;nfdi-sidebar-eleneo&gt;</code> tag. MUST contain <code>href</code> attribute.</li>
+<li>Will be checked for mathing path to windowlocation to automatically open active subpages.</li>
 </ul>
 <nfdi-h3 id="html-attributes-1">Html Attributes</nfdi-h3>
 <ul>
@@ -241,9 +300,9 @@ thead {
 </ul>
 <nfdi-h3 id="custom-properties-3">Custom Properties</nfdi-h3>
 <ul>
-<li><code>--accent-text-color</code>, set color of &quot;title&quot; slot. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
-<li><code>--sidebar-text-color</code>, set color of &quot;inner&quot; slots [<code>h1</code>, <code>h2</code>, <code>h3</code>]. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a> or white based on <code>--sidebar-background-color</code>)</li>
-<li><code>--sidebar-background-color</code> set &quot;background-color&quot; of &quot;Sidebar Area&quot;. (Default: transparent)</li>
+<li><code>--accent-text-color</code>, set color of dropdown angle. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
+<li><code>--sidebar-text-color</code>, set text color of all slots. (Default: <a href="https://github.com/nfdi4plants/Branding#lightdark-base-colors">nfdi-black</a>)</li>
+<li><code>--element-background-color</code>, set on hover color for sidebar links (Default: <a href="https://github.com/nfdi4plants/Branding#darkblue">nfdi-darkblue</a>)</li>
 </ul>
 <nfdi-h2 id="nfdi-header">nfdi-header</nfdi-h2>
 <nfdi-code class="language-html">&lt;script type="text/plain">&lt;nfdi-h1>Metadata&lt;/nfdi-h1>
