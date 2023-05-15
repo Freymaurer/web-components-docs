@@ -22,6 +22,7 @@ To-Dos:
 ## nfdi-footer:/docs/WebComponents.html#nfdi-footer
 ## nfdi-body:/docs/WebComponents.html#nfdi-body
 ## nfdi-sidebar-element:/docs/WebComponents.html#nfdi-sidebar-element
+## nfdi-sidebar-eleneo:/docs/WebComponents.html#nfdi-sidebar-eleneo
 ## nfdi-header:/docs/WebComponents.html#nfdi-header
 ## nfdi-toc:/docs/WebComponents.html#nfdi-toc
 ## nfdi-code:/docs/WebComponents.html#nfdi-code
