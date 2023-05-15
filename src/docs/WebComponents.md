@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Web Components
-published: 2023-05-08
+published: 2023-05-15
 Author: Kevin Frey
 add toc: false
 add sidebar: _sidebars\mainSidebar.md
@@ -11,6 +11,7 @@ add sidebar: _sidebars\mainSidebar.md
 - [&#60;nfdi-footer&#62;](#nfdi-footer)
 - [&#60;nfdi-body&#62;](#nfdi-body)
 - [&#60;nfdi-sidebar-element&#62;](#nfdi-sidebar-element)
+- [&#60;nfdi-sidebar-eleneo&#62;](#nfdi-sidebar-eleneo)
 - [&#60;nfdi-header&#62;](#nfdi-header)
 - [&#60;nfdi-toc&#62;](#nfdi-toc)
 - [&#60;nfdi-code&#62;](#nfdi-code)
@@ -115,7 +116,7 @@ Slotless component.
 
 The top level container element for the main documentation design.
 
-![nfdi-navbar](../images/WebComponents/nfdi-body.png?v0.5.2)
+![nfdi-body](../images/WebComponents/nfdi-body.png?v0.5.2)
 *v0.5.2*
 
 This element will contain all documentation content in its "Main Content Area". To style it's children in this area, use the bulma class `class="content"`. 
@@ -129,24 +130,52 @@ This element will contain all documentation content in its "Main Content Area". 
 Child elements will go to "Main Content Area"
 
 ```html
-<script type="text/plain"><nfdi-body class="content" hassidebar="true">
+<nfdi-body class="content" hassidebar="true">
     <h1 class="front-header">Index</h1>
     <i class="help">last updated at 2022-06-06</i>
-</nfdi-body></script>
+</nfdi-body>
 ```
-
 
 #### **sidebar-slot**
 Use this slot to specify an [nfdi-sidebar-element](#nfdi-sidebar-element).
 
 ```html
-<script type="text/plain"><nfdi-body class="content" hassidebar="true">
+<nfdi-body class="content" hassidebar="true">
+    <!-- searchbar slot, pagefind example -->
+    <div slot="searchbar"> 
+        <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+        <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+        <div id="search"></div>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({ element: "#search" });
+            });
+        </script>
+    </div>
     <!-- sidebar slot -->
     <nfdi-sidebar-element slot="sidebar" isactive="true">
         <div slot="title">General</div>
         <h1 slot="inner"><a href="/index.html">Home</a></h1>
     </nfdi-sidebar-element>
-</nfdi-body></script>
+</nfdi-body>
+```
+
+#### **searchbar-slot**
+Use this slot to set an element above all sidebar links.
+
+```html
+<nfdi-body class="content" hassidebar="true">
+    <!-- searchbar slot, pagefind example -->
+    <div slot="searchbar"> 
+        <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+        <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+        <div id="search"></div>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({ element: "#search" });
+            });
+        </script>
+    </div>
 ```
 
 ### Html Attributes
@@ -173,22 +202,56 @@ Stackable element in "Sidebar Area> of body. MUST be slotted in "sidebar" slot o
 - Automatically highlights active pages (host + path).
     - Automatically hightlights in-page links when scrolled by.
 
+## nfdi-sidebar-eleneo
+
+```html
+<nfdi-sidebar-eleneo slot="sidebar">
+    <a href="/">Theory</a>
+    <a href="/#" slot="child">Metadata</a>
+    <a href="/#what-is-metadata-amp-more" slot="child">What is metadata?</a>
+    <a href="/#where-does-metadata-come-from" slot="child">Where does metadata come from?</a>
+    <a href="/#why-do-i-benefit-from-metadata" slot="child">Why do I benefit from metadata?</a>
+    <nfdi-sidebar-eleneo slot="child">
+        <a href="/#what-tasks-are-important-for-rich-metadata">What tasks are important for rich metadata?</a>
+        <a href="/#collection" slot="child">Collection</a>
+        <a href="/#structuring" slot="child">Structuring</a>
+        <a href="/#sharing-and-curation" slot="child">Sharing and curation</a>
+    </nfdi-sidebar-eleneo>
+</nfdi-sidebar-eleneo>
+```
+
+<br>
+
+Stackable element in "Sidebar Area" of body. MUST be slotted in "sidebar" slot of `nfdi-body`.
+
+![nfdi-navbar](../images/WebComponents/nfdi-sidebar-eleneo.png?v1.0.0)
+*v1.0.0*
+
+**Features**:
+- Can be opened or closed on click.
+- Automatically highlights active pages (host + path).
+- Can be nested to increase nesting depth.
+
 ### Slots
 
 ```html
-<script type="text/plain"><nfdi-sidebar-element slot="sidebar" isactive="true">
-    <div slot="title">General</div>
-    <h1 slot="inner"><a href="/index.html">Home</a></h1>
-</nfdi-sidebar-element></script>
+<nfdi-sidebar-eleneo slot="child">
+    <a href="/#what-tasks-are-important-for-rich-metadata">What tasks are important for rich metadata?</a>
+    <a href="/#collection" slot="child">Collection</a>
+    <a href="/#structuring" slot="child">Structuring</a>
+    <a href="/#sharing-and-curation" slot="child">Sharing and curation</a>
+</nfdi-sidebar-eleneo>
 ```
 
-#### **title-slot**
-Use this slot to specify the header of one sidebar element block.
+#### **main**
+Use this slot for the main link.
+- MUST be `<a>` tag. MUST contain `href` attribute.
+- Will be checked for mathing path to windowlocation to automatically open active subpages.
 
-#### **inner-slot**
-Use this slot with any of [`h1`, `h2`, `h3`]. to create sidebar links. 
-- MAY contain `href` attribute.
-- Will be checked for matching path to window location and in-page links.
+#### **child-slot**
+Use this slot to create a toggable sub-container which contains child links. 
+- MUST be `<a>` or `<nfdi-sidebar-eleneo>` tag. MUST contain `href` attribute.
+- Will be checked for mathing path to windowlocation to automatically open active subpages.
 
 ### Html Attributes
 
@@ -196,9 +259,9 @@ Use this slot with any of [`h1`, `h2`, `h3`]. to create sidebar links.
 
 ### Custom Properties
 
-- `--accent-text-color`, set color of "title" slot. (Default: [nfdi-black][nfdi-basecolor])
-- `--sidebar-text-color`, set color of "inner" slots [`h1`, `h2`, `h3`]. (Default: [nfdi-black][nfdi-basecolor] or white based on `--sidebar-background-color`)
-- `--sidebar-background-color` set "background-color" of "Sidebar Area". (Default: transparent)
+- `--accent-text-color`, set color of dropdown angle. (Default: [nfdi-black][nfdi-basecolor])
+- `--sidebar-text-color`, set text color of all slots. (Default: [nfdi-black][nfdi-basecolor])
+- `--element-background-color`, set on hover color for sidebar links (Default: [nfdi-darkblue][nfdi-darkblue])
 
 ## nfdi-header
 
