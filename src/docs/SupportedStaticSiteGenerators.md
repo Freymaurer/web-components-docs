@@ -11,7 +11,7 @@ add sidebar: _sidebars\mainSidebar.md
 
 These docs are created using this setup, so you can always have a look at the [source repo](https://github.com/nfdi4plants/web-components-docs) if you find something missing.
 
-*Docs for version: ^0.7.0*
+*Docs for version: ^1.0.2*
 
 ## Setup
 
@@ -113,6 +113,15 @@ let files =
     |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not && n.Contains "/_sidebars/" |> not)
 ```
 
+`useNewSidebar = true` decides which type of sidebar is preferred:
+- **Old Sidebar**: `false` for [nfdi-sidebar-element](./WebComponents.html#nfdi-sidebar-element).
+- **New Sidebar**: `true` for [nfdi-sidebar-eleneo](./WebComponents.html#nfdi-sidebar-eleneo).
+
+```fsharp
+// src/loaders/docloader.fsx
+Docs.loadFile(projectRoot, contentDir, filePath, useNewSidebar = true, includeSearchbar = true)
+```
+
 Sidebar markdown files must start with a metadata block:
 
 ```yml
@@ -126,6 +135,24 @@ To-Dos:
 
 - MAY contain **any** other metadata. The information will be read but will not affect the generated html.
 
+### New Sidebar
+
+To add a sidebar element use header syntax in combination with links. Any lower level header will be nested to into its higher level header.
+
+```markdown
+# [General](/)
+## [Installation](/docs/Installation.html)
+## [Configure Scheduled Updates](/docs/ScheduledUpdates.html)
+## [List of Projects](/docs/ProjectList.html)
+## [Supported Static Site Generators](/docs/SupportedStaticSiteGenerators.html)
+### [Fornax](/docs/SupportedStaticSiteGenerators.html#fornax)
+## [Common Erros](/docs/CommonErrors.html)
+```
+
+### Old Sidebar 
+
+> This is not the default sidebar anymore
+
 To add a sidebar element to the page, use the codeblock syntax:
 
 <pre><code>```Data Management Plan
@@ -138,3 +165,34 @@ To add a sidebar element to the page, use the codeblock syntax:
 - All text after the opening <code>```</code> will be parsed to the element title.
 - Inner text MUST only contain heading lines.
     - Only headers up to `###` are parsed. All header with more depth are parsed to `###`.
+
+
+## Searchbar
+
+We use [Pagefinder](https://pagefind.app/docs/) as basis for static website search.
+It generates the `src/_public/_pagefind` folder, containing css and js to power the searchbar.
+
+If the searchbar is not visible (should be above sidebar) you need to rerun pagefind.
+
+`npm run index` 
+
+This will create the necessary files. But *at the moment* will not correctly work when using the testclient.
+It will show the ui part but will not function.
+
+To test the searchfunction you can use: `npm run indexserve`.
+
+Activate with `useNewSidebar = true`.
+
+```fsharp
+// src/loaders/docloader.fsx
+Docs.loadFile(projectRoot, contentDir, filePath, useNewSidebar = true, includeSearchbar = true)
+```
+
+### Include in deploy gh-action
+
+Add the following part after the `Build` step in `.github/workflows/deploy.yml`.
+
+```yml
+- name: Index
+  run: npm run index
+```

@@ -25,12 +25,15 @@ let loader (projectRoot: string) (siteContent: SiteContents) =
     let docs = 
         let loadDocs (filePath:string) = 
             #if WATCH
-            Docs.loadFile(projectRoot, contentDir, filePath)
+            Docs.loadFile(projectRoot, contentDir, filePath, useNewSidebar = true, includeSearchbar = true)
             #else
-            Docs.loadFile(projectRoot, contentDir, filePath, productionBasePath = "web-components-docs")
+            Docs.loadFile(projectRoot, contentDir, filePath, useNewSidebar = true, includeSearchbar = true, productionBasePath = "web-components-docs")
             #endif
         files 
         |> Array.map loadDocs
+
+    docs
+    |> Array.iter(fun doc -> printfn "[SIDEBAR %s] %i" doc.title doc.sidebar.Length)    
 
     // let docs0 = siteContent.TryGetValues<DocsData> () |> Option.defaultValue Seq.empty
 
