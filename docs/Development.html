@@ -48,42 +48,78 @@
   <nfdi-navbar></nfdi-navbar>
   <body>
     <nfdi-body class="content" hasSidebar="true">
-      <nfdi-sidebar-element slot="sidebar" isActive="true">
-        <div slot="title">
+      <div slot="searchbar">
+        <link href="web-components-docs/_pagefind/pagefind-ui.css" rel="stylesheet"/>
+        <script src="web-components-docs/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+        <div id="search"></div>
+        <script>
+          window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({ element: "#search" });
+});
+        </script>
+      </div>
+      <nfdi-sidebar-eleneo slot="sidebar">
+        <a href="/web-components-docs/index.html">
           General
-        </div>
-        <h1 slot="inner" href="/web-components-docs/">Home</h1>
-<h1 slot="inner" href="/web-components-docs/docs/Installation.html">Installation</h1>
-<h1 slot="inner" href="/web-components-docs/docs/ScheduledUpdates.html">Configure Scheduled Updates</h1>
-<h1 slot="inner" href="/web-components-docs/docs/ProjectList.html">List of Projects</h1>
-<h1 slot="inner" href="/web-components-docs/docs/SupportedStaticSiteGenerators.html">Supported Static Site Generators</h1>
-<h2 slot="inner" href="/web-components-docs/docs/SupportedStaticSiteGenerators.html#fornax">Fornax</h2>
-<h1 slot="inner" href="/web-components-docs/docs/CommonErrors.html">Common Erros</h1>
-
-      </nfdi-sidebar-element>
-      <nfdi-sidebar-element slot="sidebar" isActive="true">
-        <div slot="title">
+        </a>
+        <a slot="child" href="/web-components-docs/docs/Installation.html">
+          Installation
+        </a>
+        <a slot="child" href="/web-components-docs/docs/ScheduledUpdates.html">
+          Configure Scheduled Updates
+        </a>
+        <a slot="child" href="/web-components-docs/docs/ProjectList.html">
+          List of Projects
+        </a>
+        <nfdi-sidebar-eleneo slot="child">
+          <a href="/web-components-docs/docs/SupportedStaticSiteGenerators.html">
+            Supported Static Site Generators
+          </a>
+          <a slot="child" href="/web-components-docs/docs/SupportedStaticSiteGenerators.html#fornax">
+            Fornax
+          </a>
+        </nfdi-sidebar-eleneo>
+        <a slot="child" href="/web-components-docs/docs/CommonErrors.html">
+          Common Erros
+        </a>
+      </nfdi-sidebar-eleneo>
+      <nfdi-sidebar-eleneo slot="sidebar">
+        <a href="/web-components-docs/docs/WebComponents.html">
           Web Components
-        </div>
-        <h1 slot="inner" href="/web-components-docs/docs/WebComponents.html">Web Components</h1>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#style">Style</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-navbar">nfdi-navbar</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-footer">nfdi-footer</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-body">nfdi-body</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-element">nfdi-sidebar-element</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-eleneo">nfdi-sidebar-eleneo</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-header">nfdi-header</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-toc">nfdi-toc</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-code">nfdi-code</h2>
-
-      </nfdi-sidebar-element>
-      <nfdi-sidebar-element slot="sidebar" isActive="true">
-        <div slot="title">
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#style">
+          Style
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-navbar">
+          nfdi-navbar
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-footer">
+          nfdi-footer
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-body">
+          nfdi-body
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-element">
+          nfdi-sidebar-element
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-eleneo">
+          nfdi-sidebar-eleneo
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-header">
+          nfdi-header
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-toc">
+          nfdi-toc
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-code">
+          nfdi-code
+        </a>
+      </nfdi-sidebar-eleneo>
+      <nfdi-sidebar-eleneo slot="sidebar">
+        <a href="/web-components-docs/docs/Development.html">
           Development
-        </div>
-        <h1 slot="inner" href="/web-components-docs/docs/Development.html">Development</h1>
-
-      </nfdi-sidebar-element>
+        </a>
+      </nfdi-sidebar-eleneo>
       <h1 class="front-header">
         Development
       </h1>

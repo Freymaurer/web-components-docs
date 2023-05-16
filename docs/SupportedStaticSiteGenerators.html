@@ -48,42 +48,78 @@
   <nfdi-navbar></nfdi-navbar>
   <body>
     <nfdi-body class="content" hasSidebar="true">
-      <nfdi-sidebar-element slot="sidebar" isActive="true">
-        <div slot="title">
+      <div slot="searchbar">
+        <link href="web-components-docs/_pagefind/pagefind-ui.css" rel="stylesheet"/>
+        <script src="web-components-docs/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+        <div id="search"></div>
+        <script>
+          window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({ element: "#search" });
+});
+        </script>
+      </div>
+      <nfdi-sidebar-eleneo slot="sidebar">
+        <a href="/web-components-docs/index.html">
           General
-        </div>
-        <h1 slot="inner" href="/web-components-docs/">Home</h1>
-<h1 slot="inner" href="/web-components-docs/docs/Installation.html">Installation</h1>
-<h1 slot="inner" href="/web-components-docs/docs/ScheduledUpdates.html">Configure Scheduled Updates</h1>
-<h1 slot="inner" href="/web-components-docs/docs/ProjectList.html">List of Projects</h1>
-<h1 slot="inner" href="/web-components-docs/docs/SupportedStaticSiteGenerators.html">Supported Static Site Generators</h1>
-<h2 slot="inner" href="/web-components-docs/docs/SupportedStaticSiteGenerators.html#fornax">Fornax</h2>
-<h1 slot="inner" href="/web-components-docs/docs/CommonErrors.html">Common Erros</h1>
-
-      </nfdi-sidebar-element>
-      <nfdi-sidebar-element slot="sidebar" isActive="true">
-        <div slot="title">
+        </a>
+        <a slot="child" href="/web-components-docs/docs/Installation.html">
+          Installation
+        </a>
+        <a slot="child" href="/web-components-docs/docs/ScheduledUpdates.html">
+          Configure Scheduled Updates
+        </a>
+        <a slot="child" href="/web-components-docs/docs/ProjectList.html">
+          List of Projects
+        </a>
+        <nfdi-sidebar-eleneo slot="child">
+          <a href="/web-components-docs/docs/SupportedStaticSiteGenerators.html">
+            Supported Static Site Generators
+          </a>
+          <a slot="child" href="/web-components-docs/docs/SupportedStaticSiteGenerators.html#fornax">
+            Fornax
+          </a>
+        </nfdi-sidebar-eleneo>
+        <a slot="child" href="/web-components-docs/docs/CommonErrors.html">
+          Common Erros
+        </a>
+      </nfdi-sidebar-eleneo>
+      <nfdi-sidebar-eleneo slot="sidebar">
+        <a href="/web-components-docs/docs/WebComponents.html">
           Web Components
-        </div>
-        <h1 slot="inner" href="/web-components-docs/docs/WebComponents.html">Web Components</h1>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#style">Style</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-navbar">nfdi-navbar</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-footer">nfdi-footer</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-body">nfdi-body</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-element">nfdi-sidebar-element</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-eleneo">nfdi-sidebar-eleneo</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-header">nfdi-header</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-toc">nfdi-toc</h2>
-<h2 slot="inner" href="/web-components-docs/docs/WebComponents.html#nfdi-code">nfdi-code</h2>
-
-      </nfdi-sidebar-element>
-      <nfdi-sidebar-element slot="sidebar" isActive="true">
-        <div slot="title">
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#style">
+          Style
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-navbar">
+          nfdi-navbar
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-footer">
+          nfdi-footer
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-body">
+          nfdi-body
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-element">
+          nfdi-sidebar-element
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-sidebar-eleneo">
+          nfdi-sidebar-eleneo
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-header">
+          nfdi-header
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-toc">
+          nfdi-toc
+        </a>
+        <a slot="child" href="/web-components-docs/docs/WebComponents.html#nfdi-code">
+          nfdi-code
+        </a>
+      </nfdi-sidebar-eleneo>
+      <nfdi-sidebar-eleneo slot="sidebar">
+        <a href="/web-components-docs/docs/Development.html">
           Development
-        </div>
-        <h1 slot="inner" href="/web-components-docs/docs/Development.html">Development</h1>
-
-      </nfdi-sidebar-element>
+        </a>
+      </nfdi-sidebar-eleneo>
       <h1 class="front-header">
         Supported Static Site Generators
       </h1>
@@ -93,7 +129,7 @@
       <nfdi-toc></nfdi-toc>
       <nfdi-h1 id="fornax">Fornax</nfdi-h1>
 <p>These docs are created using this setup, so you can always have a look at the <a href="https://github.com/nfdi4plants/web-components-docs">source repo</a> if you find something missing.</p>
-<p><em>Docs for version: ^0.7.0</em></p>
+<p><em>Docs for version: ^1.0.2</em></p>
 <nfdi-h2 id="setup">Setup</nfdi-h2>
 <ol>
 <li><code>dotnet new --install Nfdi4Plants.Fornax.Template</code>, to install the current version of the template.</li>
@@ -184,6 +220,14 @@ let files =
     Directory.GetFiles(docsPath, "*")
     |> Array.filter (fun n -> n.Contains @"\_sidebars\" |> not &amp;&amp; n.Contains "/_sidebars/" |> not)
 </nfdi-code>
+<p><code>useNewSidebar = true</code> decides which type of sidebar is preferred:</p>
+<ul>
+<li><strong>Old Sidebar</strong>: <code>false</code> for <a href="./WebComponents.html#nfdi-sidebar-element">nfdi-sidebar-element</a>.</li>
+<li><strong>New Sidebar</strong>: <code>true</code> for <a href="./WebComponents.html#nfdi-sidebar-eleneo">nfdi-sidebar-eleneo</a>.</li>
+</ul>
+<nfdi-code class="language-fsharp">// src/loaders/docloader.fsx
+Docs.loadFile(projectRoot, contentDir, filePath, useNewSidebar = true, includeSearchbar = true)
+</nfdi-code>
 <p>Sidebar markdown files must start with a metadata block:</p>
 <nfdi-code class="language-yml">---
 published: 2022-05-09
@@ -195,6 +239,20 @@ To-Dos:
 <ul>
 <li>MAY contain <strong>any</strong> other metadata. The information will be read but will not affect the generated html.</li>
 </ul>
+<nfdi-h3 id="new-sidebar">New Sidebar</nfdi-h3>
+<p>To add a sidebar element use header syntax in combination with links. Any lower level header will be nested to into its higher level header.</p>
+<nfdi-code class="language-markdown"># [General](/)
+## [Installation](/docs/Installation.html)
+## [Configure Scheduled Updates](/docs/ScheduledUpdates.html)
+## [List of Projects](/docs/ProjectList.html)
+## [Supported Static Site Generators](/docs/SupportedStaticSiteGenerators.html)
+### [Fornax](/docs/SupportedStaticSiteGenerators.html#fornax)
+## [Common Erros](/docs/CommonErrors.html)
+</nfdi-code>
+<nfdi-h3 id="old-sidebar">Old Sidebar</nfdi-h3>
+<blockquote>
+<p>This is not the default sidebar anymore</p>
+</blockquote>
 <p>To add a sidebar element to the page, use the codeblock syntax:</p>
 <pre><code>```Data Management Plan
 # Data Management Plan:/docs/DataManagementPlan.html
@@ -210,6 +268,23 @@ To-Dos:
 </ul>
 </li>
 </ul>
+<nfdi-h2 id="searchbar">Searchbar</nfdi-h2>
+<p>We use <a href="https://pagefind.app/docs/">Pagefinder</a> as basis for static website search.
+It generates the <code>src/_public/_pagefind</code> folder, containing css and js to power the searchbar.</p>
+<p>If the searchbar is not visible (should be above sidebar) you need to rerun pagefind.</p>
+<p><code>npm run index</code></p>
+<p>This will create the necessary files. But <em>at the moment</em> will not correctly work when using the testclient.
+It will show the ui part but will not function.</p>
+<p>To test the searchfunction you can use: <code>npm run indexserve</code>.</p>
+<p>Activate with <code>useNewSidebar = true</code>.</p>
+<nfdi-code class="language-fsharp">// src/loaders/docloader.fsx
+Docs.loadFile(projectRoot, contentDir, filePath, useNewSidebar = true, includeSearchbar = true)
+</nfdi-code>
+<nfdi-h3 id="include-in-deploy-gh-action">Include in deploy gh-action</nfdi-h3>
+<p>Add the following part after the <code>Build</code> step in <code>.github/workflows/deploy.yml</code>.</p>
+<nfdi-code class="language-yml">- name: Index
+  run: npm run index
+</nfdi-code>
 
       <h3>
         DataPLANT Support
