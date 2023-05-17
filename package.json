@@ -10,7 +10,8 @@
   "scripts": {
     "bundle": "rollup --config rollup.config.js",
     "index": "npx -y pagefind --source ./src/_public",
-    "indexserve": "npx -y pagefind --source ./src/_public --serve"
+    "indexserve": "npx -y pagefind --source ./src/_public --serve",
+    "fornax": "cd ./src && dotnet fornax watch"
   },
   "author": "",
   "license": "ISC",
