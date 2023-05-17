@@ -9,8 +9,8 @@
   "type": "module",
   "scripts": {
     "bundle": "rollup --config rollup.config.js",
-    "index": "npx -y pagefind --source ./src/_public",
-    "indexserve": "npx -y pagefind --source ./src/_public --serve",
+    "index": "npx -y pagefind --source ./src/_public --bundle-dir pagefind",
+    "indexserve": "npx -y pagefind --source ./src/_public --bundle-dir pagefind --serve",
     "fornax": "cd ./src && dotnet fornax watch"
   },
   "author": "",
