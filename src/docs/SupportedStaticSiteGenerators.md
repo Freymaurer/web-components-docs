@@ -32,12 +32,12 @@ To add more documentation, add a markdown file to `\src\docs`. The file MUST sta
 ---
 layout: docs
 title: Metadata
-published: 2022-05-09
-Author: Dominik Brilhaus
+date: 2022-05-09
+author: Dominik Brilhaus
 add toc: true
-add sidebar: sidebars\mainSidebar.md
-Article Status: Publishable
-To-Dos: 
+add sidebar: _sidebars/mainSidebar.md
+status: draft
+todos: 
     - Update links to other KB articles
 ---
 ```
@@ -59,7 +59,7 @@ To-Dos:
 - MAY contain `add support: false`.
     - If true adds DataPlant support component at the bottom.
     - Default is `true`.
-- MAY contain `add sidebar: realtive\path\to\sidebar.md` to add the sidebar element to the page.
+- MAY contain `add sidebar: relative/path/to/sidebar.md` to add the sidebar element to the page.
 - MAY contain any other metadata. The information will be read but will not affect the generated html.
 
 ### Author
