@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This repository is archived and not further developed!
+
 # @nfdi4plants/web-components docs
 
 **[Link to gh-pages](https://nfdi4plants.github.io/web-components-docs/)**
